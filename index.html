@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kel's Cafe — Coffee, Tea & Fresh Bites in Downtown Everett, WA</title>
+
+<!-- ============ SEO + LOCAL ============ -->
+<meta name="description" content="Kel's Cafe is a downtown Everett cafe at 1909 Hewitt Avenue, across from Angel of the Winds Arena. Breakfast burritos, fresh sandwiches, homemade salads and house-baked pastries. Open Monday–Saturday 8AM–2PM." />
+<meta name="keywords" content="cafe Everett WA, breakfast Everett, lunch Everett, downtown Everett cafe, breakfast burritos Everett, sandwiches Everett, Kel's Cafe, Angel of the Winds Arena cafe, fresh baked goods Everett, homemade food Everett" />
+<meta name="author" content="Kel's Cafe" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.kelscoffee.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="business.business" />
+<meta property="og:title" content="Kel's Cafe — Downtown Everett Coffee & Cafe" />
+<meta property="og:description" content="Breakfast burritos, fresh sandwiches, homemade salads and house-baked pastries at 1909 Hewitt Avenue, downtown Everett. Across from Angel of the Winds Arena. Open Mon–Sat 8AM–2PM." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" />
+<meta property="og:url" content="https://www.kelscoffee.com/" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kel's Cafe — Downtown Everett Cafe" />
+<meta name="twitter:description" content="Coffee, tea & fresh baked goods in downtown Everett. Open Mon–Sat 8AM–2PM." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" />
+
+<!-- Local business structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Kel's Cafe",
+  "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
+  "@id": "https://www.kelscoffee.com/",
+  "url": "https://www.kelscoffee.com/",
+  "telephone": "+1-425-000-0000",
+  "priceRange": "$",
+  "foundingDate": "2025-06-18",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1909 Hewitt Avenue",
+    "addressLocality": "Everett",
+    "addressRegion": "WA",
+    "postalCode": "98201",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 47.978, "longitude": -122.205 },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "14:00"
+  }]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   KEL'S CAFE — REBRAND TOKENS
+   ============================================================ */
+:root{
+  --cream:#f7f1e6;          /* page background */
+  --cream-2:#ece1cf;        /* alternating section */
+  --brand:#6f4a2f;          /* coffee brown */
+  --brand-dark:#38241a;     /* espresso */
+  --accent:#c5912f;         /* rich caramel gold */
+  --accent-soft:#e6cb8c;    /* light gold */
+  --forest:#33473a;         /* deep forest green (from the real menu) */
+  --forest-soft:#5f7563;    /* muted sage */
+  --ink:#2a1f17;            /* main text */
+  --grey:#7c6f63;           /* muted text */
+  --grey-light:#dccfba;     /* borders */
+  --white:#fffdf7;          /* cards */
+
+  /* redesign additions */
+  --espresso:#1f150e;       /* near-black brown for dark sections */
+  --line:rgba(56,36,26,.16);     /* hairline rule on light */
+  --line-2:rgba(255,253,247,.16);/* hairline rule on dark */
+
+  /* shadows — warm-tinted for depth */
+  --shadow-sm:0 2px 10px rgba(56,36,26,.07);
+  --shadow-md:0 12px 34px rgba(56,36,26,.13);
+  --shadow-lg:0 28px 64px rgba(56,36,26,.22);
+  /* radius */
+  --r-sm:8px; --r-md:16px; --r-lg:28px; --r-pill:999px;
+  /* fonts */
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  /* transitions */
+  --t-fast:.2s ease; --t:.35s cubic-bezier(.4,0,.2,1); --t-slow:.6s cubic-bezier(.4,0,.2,1);
+}
+
+/* ============================ BASE ============================ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--cream);
+  line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  font-optical-sizing:auto;position:relative;
+}
+/* subtle paper grain over the whole page */
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.08;font-weight:600;letter-spacing:-.015em}
+h1,h2{font-variation-settings:"opsz" 144;font-weight:600}
+.accent{color:var(--accent)}
+.italic{font-style:italic;color:var(--accent);font-weight:500}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+section{position:relative}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ----- shared header bits used by the MENU section (kept stable) ----- */
+.eyebrow{
+  font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;border-radius:2px}
+.center .eyebrow::after{content:"";width:26px;height:2px;background:var(--accent);display:inline-block;border-radius:2px}
+.section-title{font-size:clamp(2.1rem,4.7vw,3.4rem);color:var(--brand-dark);margin-bottom:14px}
+.section-sub{color:var(--grey);max-width:560px;font-size:1.06rem}
+.center{text-align:center}.center .section-sub{margin:0 auto}
+.center .eyebrow{justify-content:center}
+
+/* ----- redesigned editorial header system ----- */
+.kicker{
+  font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--brand);display:inline-flex;align-items:center;gap:13px;margin-bottom:22px;
+}
+.kicker::before{content:"";width:34px;height:1px;background:var(--accent)}
+.kicker .idx{color:var(--accent);font-variant-numeric:tabular-nums}
+.center .kicker{justify-content:center}
+.center .kicker::after{content:"";width:34px;height:1px;background:var(--accent)}
+.display{font-family:var(--serif);font-weight:600;color:var(--brand-dark);line-height:1.04;letter-spacing:-.02em;
+  font-size:clamp(2.3rem,5.3vw,3.9rem)}
+.display em{font-style:italic;color:var(--accent);font-weight:500}
+.lead{color:var(--grey);font-size:1.08rem;max-width:560px;line-height:1.7}
+.center .lead{margin-left:auto;margin-right:auto}
+.sec-head{margin-bottom:54px}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--sans);font-weight:600;
+  font-size:.97rem;padding:14px 28px;border-radius:var(--r-pill);cursor:pointer;white-space:nowrap;
+  border:2px solid transparent;transition:transform var(--t-fast),box-shadow var(--t-fast),background var(--t-fast),color var(--t-fast);
+}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:var(--accent);color:var(--brand-dark);box-shadow:var(--shadow-md)}
+.btn-primary:hover{background:var(--accent-soft);box-shadow:var(--shadow-lg)}
+.btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-dark{background:var(--brand-dark);color:var(--cream)}
+.btn-dark:hover{background:var(--brand)}
+.btn-outline{background:transparent;color:var(--brand-dark);border-color:var(--brand)}
+.btn-outline:hover{background:var(--brand);color:var(--white)}
+
+/* ============================ ANNOUNCEMENT BAR ============================ */
+.announce{
+  background:var(--espresso);color:var(--accent-soft);text-align:center;
+  font-size:.82rem;letter-spacing:.05em;padding:9px 16px;font-weight:500;position:relative;z-index:60;
+}
+.announce strong{color:var(--white);font-weight:600}
+
+/* ============================ NAVBAR ============================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;transition:background var(--t),box-shadow var(--t),padding var(--t),border-color var(--t);
+  padding:22px 0;border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(247,241,230,.86);backdrop-filter:blur(16px);box-shadow:var(--shadow-sm);padding:13px 0;border-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;font-size:1.45rem;color:var(--white);transition:color var(--t);letter-spacing:-.01em}
+.nav.scrolled .logo{color:var(--brand-dark)}
+.logo-mark{width:42px;height:42px;flex:none;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.logo-mark svg{width:24px;height:24px}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{font-weight:500;font-size:.9rem;letter-spacing:.02em;color:rgba(255,255,255,.9);position:relative;transition:color var(--t-fast)}
+.nav.scrolled .nav-links a{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--accent);transition:width var(--t)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.nav-call{font-weight:600;color:rgba(255,255,255,.9);font-size:.9rem;display:flex;align-items:center;gap:7px;transition:color var(--t-fast)}
+.nav.scrolled .nav-call{color:var(--brand-dark)}
+.nav-call:hover{color:var(--accent)}
+.nav .btn{padding:11px 24px;font-size:.9rem}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;z-index:80}
+.hamburger span{width:26px;height:2px;background:var(--white);transition:var(--t)}
+.nav.scrolled .hamburger span{background:var(--brand-dark)}
+
+/* mobile overlay */
+.mobile-menu{
+  position:fixed;inset:0;background:var(--espresso);z-index:70;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;opacity:0;pointer-events:none;transform:translateY(-12px);transition:var(--t);
+}
+.mobile-menu.open{opacity:1;pointer-events:auto;transform:none}
+.mobile-menu a{color:var(--cream);font-family:var(--serif);font-size:2rem;padding:10px}
+.mobile-menu a:hover{color:var(--accent)}
+.mobile-menu .btn{margin-top:18px;font-size:1.1rem}
+.mobile-close{position:absolute;top:24px;right:24px;background:none;border:0;color:var(--cream);font-size:2.4rem;cursor:pointer;line-height:1}
+
+/* ============================ HERO ============================ */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--white);
+  background:
+    linear-gradient(180deg,rgba(20,14,9,.5) 0%,rgba(20,14,9,.06) 24%,rgba(20,14,9,.62) 58%,rgba(20,14,9,.95) 100%),
+    linear-gradient(90deg,rgba(20,14,9,.78) 0%,rgba(20,14,9,.34) 48%,rgba(20,14,9,.06) 80%),
+    url('images/kels im.png') 32% 42%/cover no-repeat;
+}
+.hero-sidelabel{
+  position:absolute;right:34px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;
+  font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.62);display:flex;align-items:center;gap:18px;
+}
+.hero-sidelabel::before,.hero-sidelabel::after{content:"";width:1px;height:46px;background:rgba(255,255,255,.4)}
+.hero-inner{padding-bottom:42px;width:100%}
+.hero-content{max-width:760px}
+.status-pill{
+  display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(6px);padding:8px 16px;border-radius:var(--r-pill);
+  font-size:.82rem;font-weight:600;letter-spacing:.05em;margin-bottom:26px;
+}
+.dot{width:9px;height:9px;border-radius:50%;background:#5ad17a;position:relative}
+.dot.closed{background:#e0795a}
+.dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:inherit;opacity:.5;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(2.4);opacity:0}100%{opacity:0}}
+.hero-slogan{font-family:var(--sans);font-size:.82rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--accent-soft);margin-bottom:16px;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.hero-slogan span,.footer-slogan span{color:var(--accent);margin:0 .35em;opacity:.8}
+.hero-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.9rem,8vw,6.2rem);line-height:1;letter-spacing:-.025em;
+  margin-bottom:24px;text-shadow:0 6px 40px rgba(0,0,0,.4)}
+.hero-title em{font-style:italic;font-weight:500;color:var(--accent-soft)}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.28rem);color:rgba(255,255,255,.96);max-width:540px;margin-bottom:36px;line-height:1.6;text-shadow:0 2px 16px rgba(0,0,0,.55)}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+/* hero meta strip */
+.hero-meta{
+  width:100%;margin-top:54px;border-top:1px solid rgba(255,255,255,.22);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.hero-meta .m{padding:22px 26px 6px;border-right:1px solid rgba(255,255,255,.16)}
+.hero-meta .m:last-child{border-right:0}
+.hero-meta .m-k{display:block;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-bottom:7px}
+.hero-meta .m-v{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:600;color:var(--accent-soft)}
+
+/* ============================ MARQUEE (rotating text — kept) ============================ */
+.marquee{background:var(--brand);color:var(--cream);padding:16px 0;overflow:hidden;white-space:nowrap;position:relative}
+.marquee-track{display:inline-flex;gap:0;animation:scroll 32s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--serif);font-style:italic;font-size:1.15rem;padding:0 30px;display:inline-flex;align-items:center;gap:30px}
+.marquee span::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent-soft);vertical-align:middle;font-style:normal}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================ INTRO / ETHOS ============================ */
+.intro{padding:96px 0}
+.intro-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
+.intro-statement{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.22;color:var(--brand-dark);letter-spacing:-.015em}
+.intro-statement em{font-style:italic;color:var(--accent)}
+.intro-body p{color:var(--grey);font-size:1.05rem;margin-bottom:22px}
+.intro-facts{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
+.intro-facts .f-v{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--brand);line-height:1}
+.intro-facts .f-k{font-size:.8rem;color:var(--grey);margin-top:4px}
+
+/* ============================ SIGNATURES (favorites) ============================ */
+.signatures{padding:104px 0;background:var(--cream-2)}
+.sig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+.sig-head .display{max-width:640px}
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.sig-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+  display:flex;flex-direction:column;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
+.sig-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
+.sig-img{position:relative;aspect-ratio:5/4;overflow:hidden}
+.sig-img img{width:100%;height:100%;object-fit:cover;transition:transform var(--t-slow)}
+.sig-card:hover .sig-img img{transform:scale(1.06)}
+.sig-index{position:absolute;top:14px;left:16px;font-family:var(--serif);font-weight:700;font-size:1rem;color:#fff;
+  background:rgba(31,21,14,.55);backdrop-filter:blur(4px);width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.sig-tag{position:absolute;top:16px;right:16px;background:var(--accent);color:var(--brand-dark);font-size:.68rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill)}
+.sig-body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.sig-body h3{font-size:1.5rem;color:var(--brand-dark)}
+.sig-body p{color:var(--grey);font-size:.94rem;flex:1}
+.sig-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding-top:16px;border-top:1px solid var(--line)}
+.sig-price{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--brand)}
+.sig-stars{color:var(--accent);font-size:.9rem;letter-spacing:1px}
+
+/* ============================ ATMOSPHERE STRIP ============================ */
+.atmos{
+  min-height:520px;display:flex;align-items:center;color:var(--white);
+  background:linear-gradient(90deg,rgba(31,21,14,.86),rgba(31,21,14,.4)),url('images/grand.jpg') center/cover fixed no-repeat;
+}
+.atmos-box{max-width:560px}
+.atmos .kicker{color:var(--accent-soft)}
+.atmos .kicker::before{background:var(--accent-soft)}
+.atmos h2{font-family:var(--serif);font-size:clamp(2.1rem,4.4vw,3.3rem);margin-bottom:20px;line-height:1.08}
+.atmos h2 em{font-style:italic;color:var(--accent-soft)}
+.atmos p{color:rgba(255,255,255,.88);margin-bottom:30px;font-size:1.08rem;line-height:1.7}
+
+/* ============================ REVIEWS ============================ */
+.reviews{padding:104px 0}
+.rev-top{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:end;margin-bottom:50px}
+.rating-pill{
+  display:inline-flex;align-items:center;gap:20px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:22px 30px;box-shadow:var(--shadow-sm);
+}
+.rating-pill .big{font-family:var(--serif);font-size:3rem;font-weight:800;color:var(--brand-dark);line-height:1}
+.rating-pill .stars{font-size:1.1rem;color:var(--accent)}
+.rating-pill .src{font-size:.85rem;color:var(--grey)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;align-items:stretch}
+.rev-card{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:32px 30px;
+  position:relative;transition:transform var(--t),box-shadow var(--t),border-color var(--t);display:flex;flex-direction:column}
+.rev-card::before{content:"";position:absolute;top:0;left:30px;right:30px;height:2px;background:var(--accent);opacity:0;transition:opacity var(--t)}
+.rev-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
+.rev-card:hover::before{opacity:1}
+.rev-card .stars{margin-bottom:14px;color:var(--accent);letter-spacing:1px}
+.rev-card p{color:var(--ink);font-size:1rem;line-height:1.65;margin-bottom:24px;flex:1}
+.rev-person{display:flex;align-items:center;gap:13px;margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.reviews-cta{margin-top:46px;text-align:center}
+.reviews-cta .btn{gap:10px}
+.avatar{width:46px;height:46px;border-radius:50%;background:var(--brand);color:var(--cream);display:grid;place-items:center;font-weight:700;font-size:1rem;font-family:var(--serif)}
+.rev-person .name{font-weight:600;font-size:.95rem}
+.rev-person .meta{font-size:.8rem;color:var(--grey)}
+
+/* ============================ MENU (kept identical) ============================ */
+#menu{position:relative;overflow:hidden;padding:104px 0}
+.menu-bg-doodles{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+/* doodles live only in the padding corners + side gutters; the panels (which carry
+   a bg) mask anything behind the text/prices, so this is safe on every screen size */
+.menu-bg-doodles svg{position:absolute;width:120px;height:120px;opacity:.2;animation:doodle-bob 7s ease-in-out infinite}
+.menu-bg-doodles svg:nth-child(1){top:0;left:0;width:96px;height:96px;color:var(--accent)}                 /* top-left padding corner */
+.menu-bg-doodles svg:nth-child(2){top:0;right:0;width:96px;height:96px;color:var(--forest);animation-delay:1.2s}     /* top-right padding corner */
+.menu-bg-doodles svg:nth-child(3){top:30%;left:-4%;width:150px;height:150px;color:var(--brand);animation-delay:2.4s} /* left gutter / behind sidebar */
+.menu-bg-doodles svg:nth-child(4){bottom:0;right:0;width:120px;height:120px;color:var(--accent);animation-delay:.8s} /* bottom-right padding corner */
+.menu-bg-doodles svg:nth-child(5){bottom:0;left:0;width:110px;height:110px;color:var(--forest);animation-delay:3.1s} /* bottom-left padding corner */
+.menu-bg-doodles svg:nth-child(6){top:60%;left:-3%;width:120px;height:120px;color:var(--brand);animation-delay:1.8s} /* lower-left gutter */
+.menu-bg-doodles svg:nth-child(7){top:44%;right:-3%;width:104px;height:104px;color:var(--forest);animation-delay:2.7s} /* right gutter */
+.menu-bg-doodles svg:nth-child(8){bottom:9%;right:-3%;width:92px;height:92px;color:var(--accent);animation-delay:4s}  /* lower-right gutter */
+#menu .wrap{position:relative;z-index:1}
+@keyframes doodle-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@media(max-width:560px){.menu-bg-doodles svg{opacity:.14}}
+.menu-layout{display:grid;grid-template-columns:320px 1fr;gap:46px;margin-top:46px;align-items:start}
+.menu-side{position:sticky;top:100px}
+.menu-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:22px;aspect-ratio:4/5}
+.menu-photo img{width:100%;height:100%;object-fit:cover}
+.menu-tabs{display:flex;flex-direction:column;gap:8px}
+.menu-tab{
+  text-align:left;background:var(--white);border:1px solid var(--grey-light);border-radius:var(--r-md);
+  padding:15px 20px;font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--ink);cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;transition:var(--t-fast);
+}
+.menu-tab:hover{border-color:var(--accent)}
+.menu-tab.active{background:var(--brand-dark);color:var(--cream);border-color:var(--brand-dark)}
+.menu-tab .tab-ico{display:flex;align-items:center;flex:none;opacity:.7}
+.menu-tab.active .tab-ico{opacity:1}
+.menu-tab .tab-ico svg{width:16px;height:16px;stroke:currentColor}
+/* panels carry the section's own colour so doodles never bleed through the
+   text or prices, on any screen size; seamless because it matches the bg */
+.menu-panels{position:relative;z-index:1;background:var(--cream)}
+.menu-panel{display:none;animation:fadeIn .4s ease}
+.menu-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.menu-panel h3{font-size:1.8rem;color:var(--brand-dark);margin-bottom:6px}
+.menu-panel .panel-note{color:var(--grey);font-size:.92rem;margin-bottom:26px}
+.menu-row{display:flex;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px dashed var(--grey-light)}
+.menu-row:last-child{border-bottom:0}
+.menu-row .mr-name{font-family:var(--serif);font-weight:600;font-size:1.18rem;color:var(--ink);white-space:nowrap}
+.menu-row .mr-desc{font-size:.88rem;color:var(--grey);flex:1}
+.menu-row .mr-dots{flex:1;border-bottom:1px dotted var(--grey-light);transform:translateY(-4px);min-width:20px}
+.menu-row .mr-price{font-family:var(--serif);font-weight:700;color:var(--brand);font-size:1.05rem;white-space:nowrap}
+.sizes-key{font-size:.8rem;color:var(--grey);background:var(--cream-2);display:inline-block;padding:6px 14px;border-radius:var(--r-pill);margin-bottom:22px;letter-spacing:.02em}
+.menu-subcat{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin:26px 0 2px;padding-bottom:7px;border-bottom:2px solid var(--accent-soft)}
+.menu-subcat+.subcat-note{font-size:.85rem;color:var(--grey);margin-bottom:10px;font-style:italic}
+.menu-foot{margin-top:30px;padding-top:24px;border-top:1px solid var(--grey-light);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.menu-foot p{font-size:.88rem;color:var(--grey);max-width:420px}
+
+/* ============================ ABOUT / STORY ============================ */
+.about{background:var(--espresso);color:var(--cream);overflow:hidden;padding:108px 0}
+.about .display{color:var(--cream)}
+.about-grid{display:grid;grid-template-columns:0.85fr 1fr;gap:64px;align-items:center}
+.about-photo{position:relative;min-width:0}
+.about-photo img{border-radius:var(--r-md);box-shadow:var(--shadow-lg);aspect-ratio:4/4.7;object-fit:cover;width:100%}
+.about-photo::before{content:"";position:absolute;inset:-14px -14px 24px 24px;border:1px solid var(--line-2);border-radius:var(--r-md);z-index:-0}
+.since-badge{
+  position:absolute;bottom:-22px;right:-12px;background:var(--accent);color:var(--brand-dark);
+  width:130px;height:130px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;
+  box-shadow:var(--shadow-lg);font-family:var(--serif);border:5px solid var(--espresso);z-index:2;
+}
+.since-badge span{display:block;margin:0;padding:0}
+.since-badge .s1{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-family:var(--sans);font-weight:600;line-height:1}
+.since-badge .s2{font-size:2rem;font-weight:800;line-height:1}
+.about .kicker{color:var(--accent-soft)}
+.about .kicker::before{background:var(--accent)}
+.pull-quote{font-family:var(--serif);font-style:italic;font-size:1.55rem;color:var(--accent-soft);line-height:1.4;margin:22px 0 24px;padding-left:22px;border-left:3px solid var(--accent)}
+.about-body>p{color:rgba(246,239,228,.8);margin-bottom:16px}
+.values{display:flex;flex-direction:column;margin-top:34px;border-top:1px solid var(--line-2)}
+.value{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line-2)}
+.value-ico{flex:none;width:48px;height:48px;border-radius:var(--r-sm);background:rgba(246,239,228,.07);display:grid;place-items:center}
+.value-ico svg{width:25px;height:25px;stroke:var(--accent-soft);fill:none;stroke-width:1.7}
+.value h4{font-size:1.12rem;color:var(--cream);margin-bottom:3px}
+.value p{font-size:.92rem;color:rgba(246,239,228,.7);margin:0}
+
+/* ============================ VISIT ============================ */
+.visit{padding:104px 0}
+.visit-grid{display:flex;gap:40px;margin-top:50px;align-items:stretch}
+.visit-map{flex:1 1 0;min-width:0;display:flex}
+.visit-map .map-card{width:100%;display:flex;flex-direction:column}
+.visit-map .map-card iframe{flex:1}
+.hours-card{flex:0 0 470px;min-width:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:36px;box-shadow:var(--shadow-sm)}
+.hours-card .hc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.hours-card h3{font-size:1.5rem;color:var(--brand-dark)}
+.open-badge{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;padding:7px 15px;border-radius:var(--r-pill);letter-spacing:.04em}
+.open-badge.open{background:#e3ede1;color:var(--forest)}
+.open-badge.closed{background:#f6e2da;color:#b14e2e}
+.hours-list{list-style:none}
+.hours-list li{display:flex;align-items:center;justify-content:space-between;padding:15px 14px;border-radius:var(--r-sm);font-size:1.05rem}
+.hours-list li.today{background:var(--cream-2);font-weight:600}
+.hours-list li .day{display:flex;align-items:center;gap:8px}
+.hours-list li .today-tag{color:var(--accent);font-size:.78rem;font-weight:700}
+.hours-list li .time{color:var(--grey)}
+.hours-list li.today .time{color:var(--ink)}
+.hours-list li.closed-day .time{color:var(--brand);opacity:.6}
+.amenities{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--cream-2);color:var(--brand-dark);font-size:.83rem;font-weight:500;padding:8px 14px;border-radius:var(--r-pill)}
+.chip svg{width:14px;height:14px;stroke:currentColor;flex:none}
+.map-card{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--line)}
+.map-card iframe{width:100%;height:460px;border:0;display:block}
+.addr-card{background:var(--espresso);color:var(--cream);padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.addr-card .addr-text strong{display:block;font-family:var(--serif);font-size:1.2rem;margin-bottom:3px}
+.addr-card .addr-text span{font-size:.9rem;color:rgba(246,239,228,.75)}
+.addr-card .addr-btns{display:flex;gap:12px}
+
+/* ============================ COMMUNITY CTA ============================ */
+.community{
+  background:var(--brand);color:var(--cream);text-align:center;position:relative;overflow:hidden;padding:108px 0;
+}
+.community::before{content:"";position:absolute;inset:0;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.community .wrap{position:relative;z-index:1}
+.community .kicker{color:var(--accent-soft)}
+.community .kicker::before,.community .kicker::after{background:var(--accent-soft)}
+.community h2{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.7rem);margin-bottom:20px;line-height:1.05}
+.community h2 em{font-style:italic;color:var(--accent-soft)}
+.community p{color:rgba(246,239,228,.85);max-width:560px;margin:0 auto 34px;font-size:1.1rem}
+.community-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.social-row{display:flex;gap:14px;justify-content:center;margin-bottom:36px}
+.social-btn{width:48px;height:48px;border-radius:50%;background:rgba(246,239,228,.12);display:grid;place-items:center;transition:var(--t-fast)}
+.social-btn:hover{background:var(--accent);transform:translateY(-4px)}
+.social-btn svg{width:22px;height:22px;fill:var(--cream)}
+.social-btn:hover svg{fill:var(--brand-dark)}
+.perks{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;font-size:.92rem;color:rgba(246,239,228,.88);
+  border-top:1px solid var(--line-2);padding-top:30px}
+.perks span{display:inline-flex;align-items:center;gap:8px}
+.perks .ck{color:var(--accent-soft);font-weight:700}
+
+/* ============================ FOOTER ============================ */
+.footer{background:var(--espresso);color:rgba(246,239,228,.7);padding:80px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:50px;padding-bottom:54px}
+.footer .logo{color:var(--cream);margin-bottom:20px}
+.footer-slogan{font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-soft);margin:-8px 0 18px}
+.footer-blurb{font-size:.93rem;max-width:330px;margin-bottom:24px;line-height:1.7}
+.footer h4{color:var(--cream);font-family:var(--sans);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:.93rem;transition:color var(--t-fast)}
+.footer-links a:hover{color:var(--accent)}
+.footer-visit p{font-size:.93rem;margin-bottom:12px;display:flex;gap:10px}
+.footer-visit svg{width:17px;height:17px;flex:none;stroke:var(--accent);fill:none;stroke-width:1.7;margin-top:3px}
+.footer .social-row{justify-content:flex-start;margin:24px 0 0}
+.footer .social-btn{width:40px;height:40px;background:rgba(246,239,228,.08)}
+.footer .social-btn svg{width:18px;height:18px}
+.copyright{border-top:1px solid var(--line-2);padding:24px 0;text-align:center;font-size:.85rem}
+.copyright a{color:var(--accent-soft)}
+
+/* ============================ FLOATING ============================ */
+.floaters{position:fixed;right:20px;bottom:20px;z-index:55;display:flex;flex-direction:column;gap:12px;opacity:0;pointer-events:none;transform:translateY(20px);transition:var(--t)}
+.floaters.show{opacity:1;pointer-events:auto;transform:none}
+.float-btn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow-lg);transition:transform var(--t-fast)}
+.float-btn:hover{transform:scale(1.1)}
+.float-btn svg{width:24px;height:24px}
+.float-call{background:var(--accent)}.float-call svg{fill:var(--brand-dark)}
+.float-order{background:var(--brand);position:relative}.float-order svg{fill:var(--cream)}
+.scroll-top{position:fixed;left:20px;bottom:20px;z-index:55;width:48px;height:48px;border-radius:50%;background:var(--espresso);color:var(--cream);border:0;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transform:translateY(20px);transition:var(--t)}
+.scroll-top.show{opacity:1;pointer-events:auto;transform:none}
+.scroll-top svg{width:22px;height:22px;stroke:var(--cream);fill:none;stroke-width:2}
+
+/* ============================ REVEAL ============================ */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s cubic-bezier(.4,0,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+/* ============================ RESPONSIVE ============================ */
+@media(max-width:980px){
+  .intro-grid{grid-template-columns:1fr;gap:38px}
+  .sig-grid{grid-template-columns:1fr 1fr}
+  .sig-card:first-child{grid-column:span 2}
+  .rev-top{grid-template-columns:1fr;gap:24px}
+  .rev-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+  /* menu responsive (kept) */
+  .menu-layout{grid-template-columns:1fr}
+  .menu-side{position:static}.menu-photo{display:none}
+  .menu-tabs{flex-direction:row;flex-wrap:wrap}
+  .menu-tab{flex:1;min-width:130px;justify-content:center}
+  .about-grid{grid-template-columns:1fr;gap:56px}
+  .about-photo{max-width:420px;margin:0 auto 8px}
+  .visit-grid{flex-direction:column}
+  .hours-card{flex:1 1 auto}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-sidelabel{display:none}
+}
+@media(max-width:800px){
+  .nav-links,.nav-call,.nav .btn{display:none}
+  .hamburger{display:flex}
+  .hero-meta{grid-template-columns:1fr 1fr}
+  .hero-meta .m:nth-child(2){border-right:0}
+  .hero-meta .m{border-top:1px solid rgba(255,255,255,.12)}
+  .atmos{background-attachment:scroll}
+  .sig-head{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:560px){
+  .intro,.signatures,.reviews,.visit,.community{padding:72px 0}
+  .section-pad,.about,#menu{padding:72px 0}
+  .sig-grid{grid-template-columns:1fr}
+  .sig-card:first-child{grid-column:span 1}
+  .rev-grid{grid-template-columns:1fr}
+  /* show only the first 2 reviews on phone */
+  .rev-card:nth-child(n+3){display:none}
+  .hero-meta{grid-template-columns:1fr 1fr}
+  .addr-card{flex-direction:column;align-items:flex-start}
+  .menu-foot{flex-direction:column;align-items:flex-start}
+  .footer-grid{grid-template-columns:1fr}
+  /* keep menu prices from getting cut off on narrow screens */
+  .menu-row{flex-wrap:wrap;gap:5px 12px}
+  .menu-row .mr-name{order:1;flex:0 1 auto}
+  .menu-row .mr-price{order:2;margin-left:auto;font-size:.95rem;text-align:right}
+  .menu-row .mr-desc{order:3;flex:1 1 100%}
+  .menu-row .mr-dots{display:none}
+  .hero-slogan{letter-spacing:.2em;font-size:.74rem}
+  .footer-slogan{letter-spacing:.18em}
+  /* keep the Kel's Cafe sign in frame on narrow screens */
+  .hero{
+    background:
+      linear-gradient(180deg,rgba(20,14,9,.45) 0%,rgba(20,14,9,.08) 22%,rgba(20,14,9,.66) 56%,rgba(20,14,9,.95) 100%),
+      linear-gradient(90deg,rgba(20,14,9,.6),rgba(20,14,9,.25)),
+      url('images/kels im.png') 32% 42%/cover no-repeat;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div class="announce" id="announce">
+  <span id="announce-text">Downtown Everett's neighborhood cafe. <strong>1909 Hewitt Ave</strong>, across from Angel of the Winds Arena.</span>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo" aria-label="Kel's Cafe home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" fill="#3f2a1b"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16" stroke="#3f2a1b" stroke-width="1.6"/><path d="M7 3.5c0 1-1 1.2-1 2.2M10 3c0 1-1 1.2-1 2.2M13 3.5c0 1-1 1.2-1 2.2" stroke="#3f2a1b" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </span>
+      Kel's Cafe
+    </a>
+    <ul class="nav-links">
+      <li><a href="#favorites">Favorites</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+14250000000" class="nav-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        Call
+      </a>
+      <a href="#menu" class="btn btn-primary">View Menu</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="#favorites">Favorites</a>
+  <a href="#menu">Menu</a>
+  <a href="#about">Our Story</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#visit">Visit</a>
+  <a href="tel:+14250000000" class="btn btn-primary">Call Kel's</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <span class="hero-sidelabel" aria-hidden="true">Est. 2025 — Everett, WA</span>
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <div class="status-pill reveal">
+        <span class="dot" id="heroDot"></span>
+        <span id="heroStatus">Open now · Everett, WA</span>
+      </div>
+      <p class="hero-slogan reveal d1">Coffee <span>|</span> Food <span>|</span> Friends</p>
+      <h1 class="hero-title reveal d1">Downtown Everett's<br><em>favorite</em> cup.</h1>
+      <p class="hero-sub reveal d2">Breakfast burritos, house sandwiches and pastries made that morning. Coffee and drinks at the counter, on Hewitt Avenue, steps from Angel of the Winds Arena.</p>
+      <div class="hero-actions reveal d3">
+        <a href="#menu" class="btn btn-primary">See the Menu</a>
+        <a href="#visit" class="btn btn-ghost">Find Us
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-meta reveal d4">
+      <div class="m"><span class="m-k">Google Rating</span><span class="m-v">4.6 ★</span></div>
+      <div class="m"><span class="m-k">Open Mon–Sat</span><span class="m-v">8AM–2PM</span></div>
+      <div class="m"><span class="m-k">Baked Goods</span><span class="m-v">Daily</span></div>
+      <div class="m"><span class="m-k">Downtown Everett</span><span class="m-v">Est. '25</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MARQUEE (rotating text) ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Breakfast Burritos</span><span>Demi-Baguettes</span><span>Homemade Potato Salad</span><span>Fresh Salads</span><span>House-Baked Muffins</span><span>1909 Hewitt Ave, Everett</span><span>Across from the Arena</span><span>Locally Owned</span>
+    <span>Breakfast Burritos</span><span>Demi-Baguettes</span><span>Homemade Potato Salad</span><span>Fresh Salads</span><span>House-Baked Muffins</span><span>1909 Hewitt Ave, Everett</span><span>Across from the Arena</span><span>Locally Owned</span>
+    <span>Breakfast Burritos</span><span>Demi-Baguettes</span><span>Homemade Potato Salad</span><span>Fresh Salads</span><span>House-Baked Muffins</span><span>1909 Hewitt Ave, Everett</span><span>Across from the Arena</span><span>Locally Owned</span>
+    <span>Breakfast Burritos</span><span>Demi-Baguettes</span><span>Homemade Potato Salad</span><span>Fresh Salads</span><span>House-Baked Muffins</span><span>1909 Hewitt Ave, Everett</span><span>Across from the Arena</span><span>Locally Owned</span>
+  </div>
+</div>
+
+<!-- ============ INTRO / ETHOS ============ -->
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div class="reveal">
+      <span class="kicker"><span class="idx">01</span> The cafe</span>
+      <p class="intro-statement">A neighborhood cafe on the corner of Hewitt, where the coffee is made to order and the kitchen runs on <em>scratch cooking</em>.</p>
+    </div>
+    <div class="intro-body reveal d1">
+      <p>Kel's opened in June 2025 and has been feeding downtown Everett ever since. Mornings start with espresso and burritos. Lunch brings sandwiches on fresh demi-baguettes and salads made that day.</p>
+      <div class="intro-facts">
+        <div><div class="f-v">8AM–2PM</div><div class="f-k">Mon through Sat</div></div>
+        <div><div class="f-v">100%</div><div class="f-k">Made in-house</div></div>
+        <div><div class="f-v">4.6★</div><div class="f-k">On Google</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAVORITES / SIGNATURES ============ -->
+<section class="signatures" id="favorites">
+  <div class="wrap">
+    <div class="sig-head">
+      <div class="reveal">
+        <span class="kicker"><span class="idx">02</span> Customer favorites</span>
+        <h2 class="display">What the regulars<br>order first.</h2>
+      </div>
+      <p class="lead reveal d1">A few dishes carry this place. Order one, then come back and find your own.</p>
+    </div>
+    <div class="sig-grid">
+      <article class="sig-card reveal">
+        <div class="sig-img">
+          <span class="sig-index">01</span>
+          <span class="sig-tag">Morning Staple</span>
+          <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=900&q=80" alt="Breakfast burrito with egg, sausage and cheese wrapped in a flour tortilla" loading="lazy" />
+        </div>
+        <div class="sig-body">
+          <h3>Breakfast Burrito</h3>
+          <p>Egg, sausage or bacon, and cheese in a flour tortilla. The most-ordered item on the menu, any day of the week.</p>
+          <div class="sig-foot"><span class="sig-price">Ask in store</span><span class="sig-stars" aria-label="5 out of 5">★★★★★</span></div>
+        </div>
+      </article>
+      <article class="sig-card reveal d1">
+        <div class="sig-img">
+          <span class="sig-index">02</span>
+          <span class="sig-tag">Lunch Pick</span>
+          <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80" alt="Italian demi-baguette with pepperoni, salami and provolone" loading="lazy" />
+        </div>
+        <div class="sig-body">
+          <h3>Italian Demi-Baguette</h3>
+          <p>Pepperoni, salami, red onion, provolone on a fresh demi. Comes with homemade potato salad or chips.</p>
+          <div class="sig-foot"><span class="sig-price">$9.95</span><span class="sig-stars" aria-label="5 out of 5">★★★★★</span></div>
+        </div>
+      </article>
+      <article class="sig-card reveal d2">
+        <div class="sig-img">
+          <span class="sig-index">03</span>
+          <span class="sig-tag">Baked Fresh</span>
+          <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=800&q=80" alt="Fresh baked blueberry muffin on a wooden board" loading="lazy" />
+        </div>
+        <div class="sig-body">
+          <h3>Blueberry Muffin</h3>
+          <p>Baked fresh each morning. Sells out before noon most days. Worth getting here early for.</p>
+          <div class="sig-foot"><span class="sig-price">$3.95</span><span class="sig-stars" aria-label="5 out of 5">★★★★★</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATMOSPHERE STRIP ============ -->
+<section class="atmos">
+  <div class="wrap">
+    <div class="atmos-box reveal">
+      <span class="kicker"><span class="idx">03</span> The room</span>
+      <h2>Big windows,<br>and the <em>whole street</em><br>out front.</h2>
+      <p>Kel's sits right on Hewitt with downtown out the window. Settle in for the morning, stop by for lunch, or grab a cup before the game at the arena. A bar is taking shape downstairs.</p>
+      <a href="#about" class="btn btn-primary">Read Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="rev-top">
+      <div class="reveal">
+        <span class="kicker"><span class="idx">04</span> Guest reviews</span>
+        <h2 class="display">Everett keeps<br>coming back.</h2>
+      </div>
+      <div class="reveal d1">
+        <div class="rating-pill">
+          <span class="big">4.6</span>
+          <div>
+            <div class="stars" aria-label="4.6 out of 5 stars">★★★★★</div>
+            <div class="src">Rated on Google Reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-card reveal"><div class="stars">★★★★★</div><p>The owners remember your name and your order. Warm spot, good coffee, and a great view of downtown from the windows.</p><div class="rev-person"><span class="avatar">JM</span><div><div class="name">Jessica M.</div><div class="meta">Google Review</div></div></div></article>
+      <article class="rev-card reveal d1"><div class="stars">★★★★★</div><p>Had lunch here and the chicken salad with homemade potato salad was excellent. Fresh, fast, and not over-seasoned at all.</p><div class="rev-person"><span class="avatar">DR</span><div><div class="name">David R.</div><div class="meta">Google Review</div></div></div></article>
+      <article class="rev-card reveal d2"><div class="stars">★★★★★</div><p>The blueberry muffin was perfect, just the right sweetness and texture. Paired it with a latte and sat by the window.</p><div class="rev-person"><span class="avatar">SK</span><div><div class="name">Sarah K.</div><div class="meta">Google Review</div></div></div></article>
+      <article class="rev-card reveal"><div class="stars">★★★★★</div><p>So glad downtown finally has a place like this. Friendly faces, drinks made right, and an easy walk before the game.</p><div class="rev-person"><span class="avatar">MT</span><div><div class="name">Michael T.</div><div class="meta">Google Review</div></div></div></article>
+      <article class="rev-card reveal d1"><div class="stars">★★★★★</div><p>Quiet morning coffee with friendly staff and a great view. You can tell the owners put real heart into this place.</p><div class="rev-person"><span class="avatar">AL</span><div><div class="name">Amanda L.</div><div class="meta">Google Review</div></div></div></article>
+      <article class="rev-card reveal d2"><div class="stars">★★★★★</div><p>Been coming here since they opened last year. The food is consistent, the staff remember you, and it just keeps getting better.</p><div class="rev-person"><span class="avatar">CB</span><div><div class="name">Chris B.</div><div class="meta">Google Review</div></div></div></article>
+    </div>
+    <div class="reviews-cta reveal d1">
+      <a href="https://www.google.com/maps/place/Kel's+Cafe/@47.9794966,-122.2037913,17z/data=!4m8!3m7!1s0x549aab00493762cf:0xf18ea47c47a860cb!8m2!3d47.9794966!4d-122.2037913!9m1!1b1" target="_blank" rel="noopener" class="btn btn-dark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3l2.09 4.26L19 9.27l-3.5 3.41.83 4.82L12 15.4l-4.33 2.1.83-4.82L5 9.27l4.91-.01L12 5z"/></svg>
+        Read all reviews on Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU (kept identical) ============ -->
+<section class="section-pad" id="menu">
+  <div class="menu-bg-doodles" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M12 22h34v16a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14V22Z"/><path d="M46 26h6a6 6 0 0 1 0 12h-6"/><path d="M22 8c2-2-1-4 1-6M30 8c2-2-1-4 1-6M38 8c2-2-1-4 1-6" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M10 44c-4-4-3-11 2-15L40 8c5-4 12-3 15 2 3 5 1 11-3 14L23 50c-5 4-10 4-13-6Z"/><path d="M44 14l-5 6M37 19l-5 6M30 24l-5 6M23 29l-5 6" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M12 22h34v16a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14V22Z"/><path d="M46 26h6a6 6 0 0 1 0 12h-6"/><path d="M22 8c2-2-1-4 1-6M30 8c2-2-1-4 1-6M38 8c2-2-1-4 1-6" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M10 44c-4-4-3-11 2-15L40 8c5-4 12-3 15 2 3 5 1 11-3 14L23 50c-5 4-10 4-13-6Z"/><path d="M44 14l-5 6M37 19l-5 6M30 24l-5 6M23 29l-5 6" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M12 22h34v16a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14V22Z"/><path d="M46 26h6a6 6 0 0 1 0 12h-6"/><path d="M22 8c2-2-1-4 1-6M30 8c2-2-1-4 1-6M38 8c2-2-1-4 1-6" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M10 44c-4-4-3-11 2-15L40 8c5-4 12-3 15 2 3 5 1 11-3 14L23 50c-5 4-10 4-13-6Z"/><path d="M44 14l-5 6M37 19l-5 6M30 24l-5 6M23 29l-5 6" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M12 22h34v16a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14V22Z"/><path d="M46 26h6a6 6 0 0 1 0 12h-6"/><path d="M22 8c2-2-1-4 1-6M30 8c2-2-1-4 1-6M38 8c2-2-1-4 1-6" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M10 44c-4-4-3-11 2-15L40 8c5-4 12-3 15 2 3 5 1 11-3 14L23 50c-5 4-10 4-13-6Z"/><path d="M44 14l-5 6M37 19l-5 6M30 24l-5 6M23 29l-5 6" stroke-width="2.4" stroke-linecap="round"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">The Chalkboard</span>
+      <h2 class="section-title">Menu</h2>
+      <p class="section-sub">Comfort food made in-house, morning to midday. Coffee, drinks and fresh baked goods at the counter.</p>
+    </div>
+    <div class="menu-layout">
+      <aside class="menu-side">
+        <div class="menu-photo"><img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=900&q=80" alt="Kel's Cafe menu board" loading="lazy" /></div>
+        <div class="menu-tabs" role="tablist">
+          <button class="menu-tab active" data-tab="espresso" role="tab"><span>Espresso</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 0 4h-2"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg></span></button>
+          <button class="menu-tab" data-tab="brewed" role="tab"><span>Brewed &amp; Tea</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 0 4h-2"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2c0 1 1 1 1 2s-1 1-1 2"/><path d="M10 2c0 1 1 1 1 2s-1 1-1 2"/></svg></span></button>
+          <button class="menu-tab" data-tab="sodas" role="tab"><span>Italian Sodas</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h14l-2 17a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2Z"/><path d="M5 7h14"/><line x1="15" y1="2" x2="13" y2="9"/></svg></span></button>
+          <button class="menu-tab" data-tab="signature" role="tab"><span>Signature</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></button>
+          <button class="menu-tab" data-tab="breakfast" role="tab"><span>Breakfast</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
+          <button class="menu-tab" data-tab="lunch" role="tab"><span>Lunch</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3v7"/></svg></span></button>
+          <button class="menu-tab" data-tab="desserts" role="tab"><span>Desserts &amp; Pastries</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 7 0 0 1 9 7H3a9 7 0 0 1 9-7z"/><rect x="2" y="9" width="20" height="4" rx="2"/><path d="M4 13v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/></svg></span></button>
+        </div>
+      </aside>
+      <div class="menu-panels">
+        <!-- BREAKFAST -->
+        <div class="menu-panel" data-panel="breakfast">
+          <h3>Breakfast</h3>
+          <p class="panel-note">Served morning to midday. Everything made to order.</p>
+          <div class="menu-subcat">Breakfast Burritos</div>
+          <p class="subcat-note">Made to order in a flour tortilla</p>
+          <div class="menu-row"><span class="mr-name">Sausage</span><span class="mr-desc">Egg, sausage, cheese</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Bacon</span><span class="mr-desc">Egg, bacon, cheese</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-subcat">Breakfast Sandwiches</div>
+          <div class="menu-row"><span class="mr-name">Sausage Muffin</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">8.25</span></div>
+          <div class="menu-row"><span class="mr-name">Bacon Muffin</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">8.25</span></div>
+          <div class="menu-subcat">Egg Bites</div>
+          <div class="menu-row"><span class="mr-name">With Meat</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">6.95</span></div>
+          <div class="menu-subcat">Bagels</div>
+          <div class="menu-row"><span class="mr-name">Plain</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">2.75–2.95</span></div>
+          <div class="menu-row"><span class="mr-name">With Cream Cheese</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">3.65–3.95</span></div>
+        </div>
+        <!-- LUNCH -->
+        <div class="menu-panel" data-panel="lunch">
+          <h3>Lunch</h3>
+          <p class="panel-note">Sandwiches and salads made fresh. Everything comes with homemade potato salad or chips.</p>
+          <div class="menu-subcat">Salads</div>
+          <div class="menu-row"><span class="mr-name">Greek</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Sm 6.50 / Lg 11.95</span></div>
+          <div class="menu-row"><span class="mr-name">Chef</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Sm 6.50 / Lg 11.95</span></div>
+          <div class="menu-subcat">Sandwiches</div>
+          <p class="subcat-note">With homemade potato salad or chips</p>
+          <div class="menu-row"><span class="mr-name">Chicken Salad</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Ham &amp; Cheddar</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Turkey Provolone</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Roast Beef &amp; Cheddar</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Roast Beef &amp; Provolone</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-subcat">Demi-Baguettes</div>
+          <p class="subcat-note">All 9.95 &middot; With homemade potato salad or chips</p>
+          <div class="menu-row"><span class="mr-name">Ham &amp; Swiss</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">9.95</span></div>
+          <div class="menu-row"><span class="mr-name">Turkey &amp; Provolone</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">9.95</span></div>
+          <div class="menu-row"><span class="mr-name">Italian</span><span class="mr-desc">Pepperoni, salami, red onion, provolone</span><span class="mr-dots"></span><span class="mr-price">9.95</span></div>
+        </div>
+        <!-- DESSERTS -->
+        <div class="menu-panel" data-panel="desserts">
+          <h3>Desserts &amp; Pastries</h3>
+          <p class="panel-note">Baked in-house daily. Selection changes, so arrive early if you have a preference.</p>
+          <div class="menu-subcat">Cookies</div>
+          <div class="menu-row"><span class="mr-name">Oatmeal Chocolate Chip</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">3.50</span></div>
+          <div class="menu-row"><span class="mr-name">Cookie</span><span class="mr-desc">Ask about today's selection</span><span class="mr-dots"></span><span class="mr-price">3.50</span></div>
+          <div class="menu-subcat">Pastries</div>
+          <div class="menu-row"><span class="mr-name">Muffins</span><span class="mr-desc">Rotating flavors, baked fresh that morning</span><span class="mr-dots"></span><span class="mr-price">3.95</span></div>
+        </div>
+        <!-- ESPRESSO -->
+        <div class="menu-panel active" data-panel="espresso">
+          <h3>Espresso Bar</h3>
+          <p class="panel-note">Pulled fresh to order. Add a flavor or alternative milk anytime.</p>
+          <span class="sizes-key">Sizes: 8oz &nbsp;/&nbsp; 12oz &nbsp;/&nbsp; 16oz &nbsp;/&nbsp; 20oz</span>
+          <div class="menu-row"><span class="mr-name">Latte</span><span class="mr-desc">Espresso &amp; steamed milk</span><span class="mr-dots"></span><span class="mr-price">4.65 / 5.15 / 5.65 / 6.05</span></div>
+          <div class="menu-row"><span class="mr-name">Mocha</span><span class="mr-desc">Chocolate, espresso &amp; milk</span><span class="mr-dots"></span><span class="mr-price">4.90 / 5.40 / 5.90 / 6.40</span></div>
+          <div class="menu-row"><span class="mr-name">White Mocha</span><span class="mr-desc">White chocolate &amp; espresso</span><span class="mr-dots"></span><span class="mr-price">4.50 / 5.10 / 5.70 / 6.20</span></div>
+          <div class="menu-row"><span class="mr-name">Chai Latte</span><span class="mr-desc">Spiced chai &amp; steamed milk</span><span class="mr-dots"></span><span class="mr-price">4.50 / 5.10 / 5.70 / 6.20</span></div>
+        </div>
+        <!-- BREWED -->
+        <div class="menu-panel" data-panel="brewed">
+          <h3>Brewed &amp; Tea</h3>
+          <p class="panel-note">Drip coffee brewed all morning. Loose-leaf and bagged teas available.</p>
+          <span class="sizes-key">Sizes: 8oz &nbsp;/&nbsp; 12oz &nbsp;/&nbsp; 16oz &nbsp;/&nbsp; 20oz</span>
+          <div class="menu-row"><span class="mr-name">Drip Coffee</span><span class="mr-desc">House brew, free refills in-house</span><span class="mr-dots"></span><span class="mr-price">4.00 / 4.50 / 5.00 / 5.50</span></div>
+          <div class="menu-row"><span class="mr-name">Hot Tea</span><span class="mr-desc">Ask about today's selection</span><span class="mr-dots"></span><span class="mr-price">2.50 / 2.75 / 3.00</span></div>
+        </div>
+        <!-- SODAS -->
+        <div class="menu-panel" data-panel="sodas">
+          <h3>Italian Sodas</h3>
+          <p class="panel-note">Flavored sparkling sodas, finished with cream on request.</p>
+          <span class="sizes-key">Sizes: 16oz &nbsp;/&nbsp; 20oz</span>
+          <div class="menu-row"><span class="mr-name">Red Bull Italian Soda</span><span class="mr-desc">Red Bull + flavor of choice</span><span class="mr-dots"></span><span class="mr-price">5.75 / 6.25</span></div>
+          <div class="menu-row"><span class="mr-name">Classic Italian Soda</span><span class="mr-desc">Sparkling water + flavor + cream</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+        </div>
+        <!-- SIGNATURE -->
+        <div class="menu-panel" data-panel="signature">
+          <h3>Signature Drinks</h3>
+          <p class="panel-note">House originals, inspired by the game shop across the street.</p>
+          <div class="menu-row"><span class="mr-name">Bard's Bane</span><span class="mr-desc">Red Bull Italian soda with Mountain Dew &amp; cream</span><span class="mr-dots"></span><span class="mr-price">6.25 / 6.75</span></div>
+          <div class="menu-row"><span class="mr-name">Strong Constitution</span><span class="mr-desc">Shot in the dark with cream &amp; white chocolate</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Dragon Slayer</span><span class="mr-desc">Black &amp; white mocha with whip</span><span class="mr-dots"></span><span class="mr-price">5.40</span></div>
+        </div>
+        <div class="menu-foot">
+          <p>Bakery selection changes daily. Prices may vary by size and add-ins. Alternative milks and extra shots available.</p>
+          <a href="https://joe.coffee/locations/wa/everett/kel-s-cafe-everett-24c196a4-60c2-4747-b6f8-071549165868/" target="_blank" rel="noopener" class="btn btn-outline">Order Online</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / STORY ============ -->
+<section class="section-pad about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=900&q=80" alt="Sam Dahl, owner of Kel's Cafe, at the cafe in downtown Everett" loading="lazy" />
+      <div class="since-badge"><span class="s1">Since</span><span class="s2">2025</span></div>
+    </div>
+    <div class="about-body reveal d1">
+      <span class="kicker"><span class="idx">05</span> Our story</span>
+      <h2 class="display">A long road to the<br>corner of <em>Hewitt</em>.</h2>
+      <p class="pull-quote">"Over a year to get here. Worth every bit of it."</p>
+      <p>Sam Dahl always wanted a cafe of his own. It took well over a year to make it happen at 1909 Hewitt Avenue, right in the middle of downtown Everett, a short walk from Angel of the Winds Arena.</p>
+      <p>Permits, health-department backlogs, more phone calls than he'd like to count. On June 18, 2025, Sam and his mom cut the ribbon together. A year on, the regulars are steady, the menu is consistent, and a bar is taking shape downstairs.</p>
+      <div class="values">
+        <div class="value">
+          <span class="value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16"/></svg></span>
+          <div><h4>Made to Order</h4><p>Espresso pulled to order, pastries baked each morning.</p></div>
+        </div>
+        <div class="value">
+          <span class="value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></span>
+          <div><h4>Rooted Downtown</h4><p>Locally owned, built specifically for downtown Everett.</p></div>
+        </div>
+        <div class="value">
+          <span class="value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5"/><circle cx="12" cy="14" r="4"/></svg></span>
+          <div><h4>Family Run</h4><p>Sam and his mom opened this together. That shows in how it runs.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="kicker"><span class="idx">06</span> Find us</span>
+      <h2 class="display">Visit Kel's.</h2>
+      <p class="lead">Right across from Angel of the Winds Arena in downtown Everett.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="hours-card reveal">
+        <div class="hc-top">
+          <h3>Hours</h3>
+          <span class="open-badge" id="hoursBadge">— —</span>
+        </div>
+        <ul class="hours-list" id="hoursList">
+          <li data-day="1"><span class="day">Monday <span class="today-tag"></span></span><span class="time">8:00 AM – 2:00 PM</span></li>
+          <li data-day="2"><span class="day">Tuesday <span class="today-tag"></span></span><span class="time">8:00 AM – 2:00 PM</span></li>
+          <li data-day="3"><span class="day">Wednesday <span class="today-tag"></span></span><span class="time">8:00 AM – 2:00 PM</span></li>
+          <li data-day="4"><span class="day">Thursday <span class="today-tag"></span></span><span class="time">8:00 AM – 2:00 PM</span></li>
+          <li data-day="5"><span class="day">Friday <span class="today-tag"></span></span><span class="time">8:00 AM – 2:00 PM</span></li>
+          <li data-day="6"><span class="day">Saturday <span class="today-tag"></span></span><span class="time">8:00 AM – 2:00 PM</span></li>
+          <li data-day="0" class="closed-day"><span class="day">Sunday <span class="today-tag"></span></span><span class="time">Closed</span></li>
+        </ul>
+        <div class="amenities">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 0 4h-2"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg>Dine-In</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>Fresh Bakery</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Street Parking</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>Free Wi-Fi</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>By the Arena</span>
+        </div>
+      </div>
+      <div class="visit-map">
+        <div class="map-card reveal d1">
+          <iframe title="Map to Kel's Cafe, 1909 Hewitt Avenue, Everett WA" src="https://www.google.com/maps?q=1909+Hewitt+Avenue,+Everett,+WA+98201&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="addr-card">
+            <div class="addr-text">
+              <strong>Kel's Cafe</strong>
+              <span>1909 Hewitt Avenue, Everett, WA 98201</span>
+            </div>
+            <div class="addr-btns">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=1909+Hewitt+Avenue,+Everett,+WA+98201" target="_blank" rel="noopener" class="btn btn-primary">Directions</a>
+              <a href="tel:+14250000000" class="btn btn-ghost" style="border-color:rgba(246,239,228,.4);color:var(--cream)">Call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY CTA ============ -->
+<section class="community">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker"><span class="idx">07</span> Stop in</span>
+      <h2>A seat is <em>waiting</em>.</h2>
+      <p>Whether it's a quick coffee before work or lunch on a weekday, Kel's has a table for you. On Hewitt, open Monday through Saturday.</p>
+      <div class="community-btns">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1909+Hewitt+Avenue,+Everett,+WA+98201" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+        <a href="tel:+14250000000" class="btn btn-ghost">Call Kel's</a>
+      </div>
+      <div class="social-row">
+        <a href="#" class="social-btn" aria-label="Kel's Cafe on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.3.07 1.69.07 4.9s0 3.6-.07 4.9c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.3.06-1.69.07-4.9.07s-3.6 0-4.9-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.2-1.71.33-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.29.81-.33 1.71-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.04.9.2 1.39.33 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.29 1.71.33 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.9-.04 1.39-.2 1.71-.33.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.29-.81.33-1.71.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.04-.9-.2-1.39-.33-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.29-1.71-.33-1.24-.06-1.61-.07-4.76-.07Zm0 3.06a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-.6a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0Z"/></svg></a>
+        <a href="https://www.facebook.com/p/Kels-Caf%C3%A9-and-Bar-100092607848808/" target="_blank" rel="noopener" class="social-btn" aria-label="Kel's Cafe on Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="tel:+14250000000" class="social-btn" aria-label="Call Kel's Cafe"><svg viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6a1 1 0 0 0-1 .2l-2.2 2.2a15.1 15.1 0 0 1-6.6-6.6l2.2-2.2a1 1 0 0 0 .2-1C8.7 6.5 8.5 5.3 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1Z"/></svg></a>
+      </div>
+      <div class="perks">
+        <span><span class="ck">✓</span> Locally Owned</span>
+        <span><span class="ck">✓</span> Fresh Baked Daily</span>
+        <span><span class="ck">✓</span> Open 6 Days</span>
+        <span><span class="ck">✓</span> Across from the Arena</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" fill="#3f2a1b"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16" stroke="#3f2a1b" stroke-width="1.6"/></svg></span>
+        Kel's Cafe
+      </div>
+      <p class="footer-slogan">Coffee <span>|</span> Food <span>|</span> Friends</p>
+      <p class="footer-blurb">A locally owned cafe at 1909 Hewitt Avenue in downtown Everett. Coffee, fresh food and baked goods. Open Monday through Saturday, 8 AM to 2 PM.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.3.07 1.69.07 4.9s0 3.6-.07 4.9c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.3.06-1.69.07-4.9.07s-3.6 0-4.9-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 0 0 9.88 4.94 4.94 0 0 0 0-9.88Zm0 1.8a3.14 3.14 0 1 1 0 6.28 3.14 3.14 0 0 1 0-6.28Zm5.14-.6a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0Z"/></svg></a>
+        <a href="https://www.facebook.com/p/Kels-Caf%C3%A9-and-Bar-100092607848808/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#favorites">Favorites</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-visit">
+      <h4>Visit Us</h4>
+      <p><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>1909 Hewitt Avenue, Everett, WA 98201</p>
+      <p><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><a href="tel:+14250000000">(425) 000-0000</a></p>
+      <p><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat: 8:00 AM – 2:00 PM<br>Sunday: Closed</p>
+    </div>
+  </div>
+  <div class="copyright">
+    © <span id="year"></span> Kel's Cafe · 1909 Hewitt Avenue, Everett, WA · Locally owned and operated
+  </div>
+</footer>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<div class="floaters" id="floaters">
+  <a href="tel:+14250000000" class="float-btn float-call" aria-label="Call Kel's Cafe"><svg viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6a1 1 0 0 0-1 .2l-2.2 2.2a15.1 15.1 0 0 1-6.6-6.6l2.2-2.2a1 1 0 0 0 .2-1C8.7 6.5 8.5 5.3 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1Z"/></svg></a>
+  <a href="https://joe.coffee/locations/wa/everett/kel-s-cafe-everett-24c196a4-60c2-4747-b6f8-071549165868/" target="_blank" rel="noopener" class="float-btn float-order" aria-label="Order online"><svg viewBox="0 0 24 24"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16" fill="none" stroke="#f6efe4" stroke-width="1.5"/></svg></a>
+</div>
+<button class="scroll-top" id="scrollTop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></button>
+
+<script>
+/* ============================================================
+   KEL'S COFFEE — INTERACTIONS
+   Hours config: Mon–Sat 8:00–14:00, Sunday closed
+   ============================================================ */
+(function(){
+  "use strict";
+
+  /* ---- Hours model (24h). null = closed ---- */
+  var HOURS = {
+    0:null,                 // Sun
+    1:{o:8,c:14}, 2:{o:8,c:14}, 3:{o:8,c:14},
+    4:{o:8,c:14}, 5:{o:8,c:14}, 6:{o:8,c:14}  // Mon–Sat
+  };
+  var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+  function fmt(h){
+    var ap = h>=12 ? "PM":"AM";
+    var hr = h%12; if(hr===0) hr=12;
+    return hr+" "+ap;
+  }
+  function nextOpen(now){
+    for(var i=0;i<8;i++){
+      var d=(now.getDay()+i)%7, info=HOURS[d];
+      if(info){
+        if(i===0 && now.getHours()<info.o) return {day:"today",h:info.o};
+        if(i===1) return {day:DAYS[d],h:info.o,word:"tomorrow"};
+        if(i>1)  return {day:DAYS[d],h:info.o};
+      }
+    }
+    return null;
+  }
+
+  function computeStatus(){
+    var now=new Date(), day=now.getDay(), info=HOURS[day];
+    var mins=now.getHours()*60+now.getMinutes();
+    var open=false, closingSoon=false;
+    if(info){
+      var o=info.o*60, c=info.c*60;
+      open = mins>=o && mins<c;
+      closingSoon = open && (c-mins)<=30;
+    }
+    return {open:open, closingSoon:closingSoon, now:now, info:info, day:day};
+  }
+
+  function applyStatus(){
+    var s=computeStatus();
+    var heroDot=document.getElementById("heroDot");
+    var heroStatus=document.getElementById("heroStatus");
+    var badge=document.getElementById("hoursBadge");
+    var announce=document.getElementById("announce-text");
+
+    if(s.open){
+      heroDot.classList.remove("closed");
+      heroStatus.textContent = s.closingSoon ? "Closing soon · Everett, WA" : "Open now · Everett, WA";
+      badge.className="open-badge open"; badge.textContent = s.closingSoon ? "● Closing soon" : "● Open now";
+      announce.innerHTML = s.closingSoon
+        ? "We're open till 2 PM today — <strong>last call's coming up!</strong>"
+        : "We're open now · <strong>8 AM – 2 PM</strong> · 1909 Hewitt Ave, Everett";
+    } else {
+      heroDot.classList.add("closed");
+      heroStatus.textContent="Closed now · Everett, WA";
+      badge.className="open-badge closed"; badge.textContent="● Closed";
+      var n=nextOpen(s.now);
+      var msg="Currently closed";
+      if(n){
+        if(n.day==="today") msg="Closed now · opens today at "+fmt(n.h);
+        else if(n.word==="tomorrow") msg="Closed now · back tomorrow at "+fmt(n.h);
+        else msg="Closed now · back "+n.day+" at "+fmt(n.h);
+      }
+      announce.innerHTML = msg.replace(/(\d+ [AP]M)/,"<strong>$1</strong>");
+    }
+
+    /* today highlight */
+    var items=document.querySelectorAll("#hoursList li");
+    items.forEach(function(li){
+      var d=parseInt(li.getAttribute("data-day"),10);
+      var tag=li.querySelector(".today-tag");
+      li.classList.remove("today");
+      tag.textContent="";
+      if(d===s.day){ li.classList.add("today"); tag.textContent="★ Today"; }
+    });
+  }
+  applyStatus();
+  setInterval(applyStatus,60000);
+
+  /* ---- year ---- */
+  document.getElementById("year").textContent=new Date().getFullYear();
+
+  /* ---- navbar scroll ---- */
+  var nav=document.getElementById("nav");
+  var announceBar=document.getElementById("announce");
+  var floaters=document.getElementById("floaters");
+  var scrollTop=document.getElementById("scrollTop");
+  var announceH=announceBar?announceBar.offsetHeight:0;
+  function onScroll(){
+    var y=window.scrollY||window.pageYOffset;
+    nav.classList.toggle("scrolled", y>40);
+    floaters.classList.toggle("show", y>400);
+    scrollTop.classList.toggle("show", y>600);
+    /* keep the nav docked just below the announce bar, then slide it
+       up to the top once the bar has scrolled off — so it never covers the logo */
+    nav.style.top = Math.max(0, announceH - y) + "px";
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});
+  window.addEventListener("resize",function(){
+    announceH = announceBar?announceBar.offsetHeight:0;
+    onScroll();
+  });
+  onScroll();
+
+  /* ---- mobile menu ---- */
+  var ham=document.getElementById("hamburger");
+  var mm=document.getElementById("mobileMenu");
+  var close=document.getElementById("mobileClose");
+  function openM(){mm.classList.add("open");document.body.style.overflow="hidden";}
+  function closeM(){mm.classList.remove("open");document.body.style.overflow="";}
+  ham.addEventListener("click",openM);
+  close.addEventListener("click",closeM);
+  mm.querySelectorAll("a").forEach(function(a){a.addEventListener("click",closeM);});
+
+  /* ---- scroll to top ---- */
+  scrollTop.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+
+  /* ---- smooth anchor with offset ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click",function(e){
+      var id=a.getAttribute("href");
+      if(id.length<2) return;
+      var t=document.querySelector(id);
+      if(!t) return;
+      e.preventDefault();
+      var top=t.getBoundingClientRect().top+window.scrollY-72;
+      window.scrollTo({top:top,behavior:"smooth"});
+    });
+  });
+
+  /* ---- menu tabs ---- */
+  var tabs=document.querySelectorAll(".menu-tab");
+  var panels=document.querySelectorAll(".menu-panel");
+  tabs.forEach(function(tab){
+    tab.addEventListener("click",function(){
+      var key=tab.getAttribute("data-tab");
+      tabs.forEach(function(t){t.classList.remove("active");});
+      panels.forEach(function(p){p.classList.toggle("active",p.getAttribute("data-panel")===key);});
+      tab.classList.add("active");
+    });
+  });
+
+  /* ---- reveal on scroll ---- */
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}
+    });
+  },{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
