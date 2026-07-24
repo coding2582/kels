@@ -61,6 +61,12 @@
 }
 </script>
 
+<!-- favicon: Kel's cup monogram -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f150e'/%3E%3Cpath d='M8 11h13v6a5 5 0 0 1-5 5h-3a5 5 0 0 1-5-5z' fill='none' stroke='%23c5912f' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M21 13h2.4a2.4 2.4 0 0 1 0 4.8H21' fill='none' stroke='%23c5912f' stroke-width='2'/%3E%3Cpath d='M11 6.5c0 1.2-1 1.4-1 2.6M15 6c0 1.2-1 1.4-1 2.6M19 6.5c0 1.2-1 1.4-1 2.6' fill='none' stroke='%23e6cb8c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+<!-- preload the compressed hero for a fast first paint -->
+<link rel="preload" as="image" href="images/kels-hero.webp" fetchpriority="high" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -119,6 +125,8 @@ h1,h2{font-variation-settings:"opsz" 144;font-weight:600}
 .accent{color:var(--accent)}
 .italic{font-style:italic;color:var(--accent);font-weight:500}
 a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+:where(a,button,.menu-tab):focus:not(:focus-visible){outline:none}
 img{max-width:100%;display:block}
 section{position:relative}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
@@ -156,7 +164,13 @@ section{position:relative}
   display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--sans);font-weight:600;
   font-size:.97rem;padding:14px 28px;border-radius:var(--r-pill);cursor:pointer;white-space:nowrap;
   border:2px solid transparent;transition:transform var(--t-fast),box-shadow var(--t-fast),background var(--t-fast),color var(--t-fast);
+  position:relative;overflow:hidden;isolation:isolate;
 }
+/* premium light-sweep on hover */
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;transform:translateX(-120%) skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transition:transform .6s ease}
+.btn:hover::after{transform:translateX(120%) skewX(-18deg)}
+.btn-ghost::after,.btn-outline::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent)}
 .btn:hover{transform:translateY(-3px)}
 .btn-primary{background:var(--accent);color:var(--brand-dark);box-shadow:var(--shadow-md)}
 .btn-primary:hover{background:var(--accent-soft);box-shadow:var(--shadow-lg)}
@@ -216,7 +230,7 @@ section{position:relative}
   background:
     linear-gradient(180deg,rgba(20,14,9,.5) 0%,rgba(20,14,9,.06) 24%,rgba(20,14,9,.62) 58%,rgba(20,14,9,.95) 100%),
     linear-gradient(90deg,rgba(20,14,9,.78) 0%,rgba(20,14,9,.34) 48%,rgba(20,14,9,.06) 80%),
-    url('images/kels im.png') 32% 42%/cover no-repeat;
+    url('images/kels-hero.webp') 32% 42%/cover no-repeat;
 }
 .hero-sidelabel{
   position:absolute;right:34px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;
@@ -566,7 +580,7 @@ section{position:relative}
     background:
       linear-gradient(180deg,rgba(20,14,9,.45) 0%,rgba(20,14,9,.08) 22%,rgba(20,14,9,.66) 56%,rgba(20,14,9,.95) 100%),
       linear-gradient(90deg,rgba(20,14,9,.6),rgba(20,14,9,.25)),
-      url('images/kels im.png') 25% 42%/cover no-repeat;
+      url('images/kels-hero.webp') 25% 42%/cover no-repeat;
   }
 }
 </style>
@@ -665,8 +679,8 @@ section{position:relative}
       <p>Kel's opened in June 2025 and has been feeding downtown Everett ever since. Mornings start with espresso and burritos. Lunch brings sandwiches on fresh demi-baguettes and salads made that day.</p>
       <div class="intro-facts">
         <div><div class="f-v">8AM–2PM</div><div class="f-k">Mon through Sat</div></div>
-        <div><div class="f-v">100%</div><div class="f-k">Made in-house</div></div>
-        <div><div class="f-v">4.6★</div><div class="f-k">On Google</div></div>
+        <div><div class="f-v"><span class="countup" data-to="100">100</span>%</div><div class="f-k">Made in-house</div></div>
+        <div><div class="f-v"><span class="countup" data-to="4.6" data-dec="1">4.6</span>★</div><div class="f-k">On Google</div></div>
       </div>
     </div>
   </div>
@@ -1208,6 +1222,34 @@ section{position:relative}
     });
   },{threshold:.12,rootMargin:"0px 0px -40px 0px"});
   document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+
+  /* ---- stat count-up (premium micro-interaction) ---- */
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".countup").forEach(function(el){
+    var to = parseFloat(el.getAttribute("data-to"));
+    var dec = parseInt(el.getAttribute("data-dec") || "0", 10);
+    if (isNaN(to)) return;
+    if (reduceMotion){ el.textContent = to.toFixed(dec); return; }
+    var started = false;
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && !started){
+          started = true; cio.unobserve(el);
+          var dur = 1200, t0 = null;
+          function step(ts){
+            if (!t0) t0 = ts;
+            var p = Math.min((ts - t0) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = (to * eased).toFixed(dec);
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = to.toFixed(dec);
+          }
+          requestAnimationFrame(step);
+        }
+      });
+    }, { threshold: .6 });
+    cio.observe(el);
+  });
 })();
 </script>
 </body>
