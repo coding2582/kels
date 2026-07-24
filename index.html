@@ -78,6 +78,11 @@
 :root{
   --cream:#f7f1e6;          /* page background */
   --cream-2:#ece1cf;        /* alternating section */
+  /* distinct light-section tints so each block reads as its own zone */
+  --sec-cream:#f7f1e6;      /* lightest cream */
+  --sec-sage:#e5ece2;       /* soft warm sage */
+  --sec-sand:#efdfc4;       /* deeper warm tan */
+  --sec-blush:#f3e4d4;      /* warm clay */
   --brand:#6f4a2f;          /* coffee brown */
   --brand-dark:#38241a;     /* espresso */
   --accent:#c5912f;         /* rich caramel gold */
@@ -276,7 +281,7 @@ section{position:relative}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ============================ INTRO / ETHOS ============================ */
-.intro{padding:96px 0}
+.intro{padding:96px 0;background:var(--sec-cream)}
 .intro-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
 .intro-statement{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.22;color:var(--brand-dark);letter-spacing:-.015em}
 .intro-statement em{font-style:italic;color:var(--accent)}
@@ -286,7 +291,7 @@ section{position:relative}
 .intro-facts .f-k{font-size:.8rem;color:var(--grey);margin-top:4px}
 
 /* ============================ SIGNATURES (favorites) ============================ */
-.signatures{padding:104px 0;background:var(--cream-2)}
+.signatures{padding:104px 0;background:var(--sec-sand)}
 .sig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
 .sig-head .display{max-width:640px}
 .sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -320,7 +325,7 @@ section{position:relative}
 .atmos p{color:rgba(255,255,255,.88);margin-bottom:30px;font-size:1.08rem;line-height:1.7}
 
 /* ============================ REVIEWS ============================ */
-.reviews{padding:104px 0}
+.reviews{padding:104px 0;background:var(--sec-blush)}
 .rev-top{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:end;margin-bottom:50px}
 .rating-pill{
   display:inline-flex;align-items:center;gap:20px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);
@@ -352,7 +357,7 @@ section{position:relative}
 .rev-person .meta{font-size:.8rem;color:var(--grey)}
 
 /* ============================ MENU (kept identical) ============================ */
-#menu{position:relative;overflow:hidden;padding:104px 0}
+#menu{position:relative;overflow:hidden;padding:104px 0;background:var(--sec-sage)}
 .menu-bg-doodles{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 /* doodles live only in the padding corners + side gutters; the panels (which carry
    a bg) mask anything behind the text/prices, so this is safe on every screen size */
@@ -399,7 +404,7 @@ section{position:relative}
 .menu-tab .tab-ico svg{width:16px;height:16px;stroke:currentColor}
 /* panels carry the section's own colour so doodles never bleed through the
    text or prices, on any screen size; seamless because it matches the bg */
-.menu-panels{position:relative;z-index:1;background:var(--cream)}
+.menu-panels{position:relative;z-index:1;background:var(--sec-sage)}
 .menu-panel{display:none;animation:fadeIn .4s ease}
 .menu-panel.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -444,7 +449,7 @@ section{position:relative}
 .value p{font-size:.92rem;color:rgba(246,239,228,.7);margin:0}
 
 /* ============================ VISIT ============================ */
-.visit{padding:104px 0}
+.visit{padding:104px 0;background:var(--sec-sage)}
 .visit-grid{display:flex;gap:40px;margin-top:50px;align-items:stretch}
 .visit-map{flex:1 1 0;min-width:0;display:flex}
 .visit-map .map-card{width:100%;display:flex;flex-direction:column}
