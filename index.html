@@ -131,7 +131,7 @@ h1,h2{font-variation-settings:"opsz" 144;font-weight:660}
 .italic{font-style:italic;color:var(--accent);font-weight:500}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
-:where(a,button,.menu-filter):focus:not(:focus-visible){outline:none}
+:where(a,button,.menu-tab):focus:not(:focus-visible){outline:none}
 img{max-width:100%;display:block}
 section{position:relative}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
@@ -384,52 +384,38 @@ section{position:relative}
 #menu .wrap{position:relative;z-index:1}
 @keyframes doodle-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 @media(max-width:560px){.menu-bg-doodles svg{opacity:.14}}
-.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:46px;margin-bottom:38px;flex-wrap:wrap}
-.menu-head-text{max-width:640px}
-.menu-head-text p{color:var(--grey);font-size:1.02rem;line-height:1.6;margin-top:14px}
-.menu-call{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--brand);white-space:nowrap;padding-bottom:5px;border-bottom:2px solid var(--accent);transition:color var(--t-fast)}
-.menu-call:hover{color:var(--accent)}
-.menu-call svg{width:15px;height:15px;stroke:currentColor;transition:transform var(--t-fast)}
-.menu-call:hover svg{transform:translateX(3px)}
-
-.menu-search{position:relative;max-width:420px;margin-bottom:22px}
-.menu-search svg{position:absolute;left:20px;top:50%;transform:translateY(-50%);width:17px;height:17px;stroke:var(--grey);pointer-events:none}
-.menu-search input{width:100%;background:var(--white);border:1px solid var(--grey-light);border-radius:var(--r-pill);
-  padding:14px 20px 14px 46px;font-family:var(--sans);font-size:.95rem;color:var(--ink);box-shadow:var(--shadow-sm)}
-.menu-search input::placeholder{color:var(--grey)}
-.menu-search input:focus{outline:none;border-color:var(--accent)}
-
-.menu-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:46px}
-.menu-filter{background:var(--white);border:1px solid var(--grey-light);border-radius:var(--r-pill);padding:11px 20px;
-  font-family:var(--sans);font-weight:600;font-size:.86rem;color:var(--ink);cursor:pointer;transition:var(--t-fast)}
-.menu-filter:hover{border-color:var(--accent)}
-.menu-filter.active{background:var(--brand-dark);color:var(--cream);border-color:var(--brand-dark)}
-
-.menu-cat{padding-top:38px;border-top:1px solid var(--grey-light)}
-.menu-cat:first-child{padding-top:0;border-top:0}
-.menu-cat.hide{display:none}
-.menu-cat-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-.menu-cat-num{font-family:var(--serif);font-weight:700;font-size:2.3rem;color:var(--accent-soft);line-height:1}
-.menu-cat-head h3{font-size:1.5rem;color:var(--brand-dark)}
-.menu-cat-note{margin-left:auto;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
-.menu-cat-rule{height:2px;background:var(--brand-dark);margin-bottom:8px}
-.menu-cat .panel-note{color:var(--grey);font-size:.92rem;margin:14px 0 26px}
+.menu-layout{display:grid;grid-template-columns:320px 1fr;gap:46px;margin-top:46px;align-items:start}
+.menu-side{position:sticky;top:100px}
+.menu-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:22px;aspect-ratio:4/5}
+.menu-photo img{width:100%;height:100%;object-fit:cover}
+.menu-tabs{display:flex;flex-direction:column;gap:8px}
+.menu-tab{
+  text-align:left;background:var(--white);border:1px solid var(--grey-light);border-radius:var(--r-md);
+  padding:15px 20px;font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--ink);cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;transition:var(--t-fast);
+}
+.menu-tab:hover{border-color:var(--accent)}
+.menu-tab.active{background:var(--brand-dark);color:var(--cream);border-color:var(--brand-dark)}
+.menu-tab .tab-ico{display:flex;align-items:center;flex:none;opacity:.7}
+.menu-tab.active .tab-ico{opacity:1}
+.menu-tab .tab-ico svg{width:16px;height:16px;stroke:currentColor}
+/* panels carry the section's own colour so doodles never bleed through the
+   text or prices, on any screen size; seamless because it matches the bg */
+.menu-panels{position:relative;z-index:1;background:var(--sec-blush)}
+.menu-panel{display:none;animation:fadeIn .4s ease}
+.menu-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.menu-panel h3{font-size:1.8rem;color:var(--brand-dark);margin-bottom:6px}
+.menu-panel .panel-note{color:var(--grey);font-size:.92rem;margin-bottom:26px}
+.menu-row{display:flex;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px dashed var(--grey-light)}
+.menu-row:last-child{border-bottom:0}
+.menu-row .mr-name{font-family:var(--serif);font-weight:600;font-size:1.18rem;color:var(--ink);white-space:nowrap}
+.menu-row .mr-desc{font-size:.88rem;color:var(--grey);flex:1}
+.menu-row .mr-dots{flex:1;border-bottom:1px dotted var(--grey-light);transform:translateY(-4px);min-width:20px}
+.menu-row .mr-price{font-family:var(--serif);font-weight:700;color:var(--brand);font-size:1.05rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 .sizes-key{font-size:.8rem;color:var(--grey);background:var(--cream-2);display:inline-block;padding:6px 14px;border-radius:var(--r-pill);margin-bottom:22px;letter-spacing:.02em}
-
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
-.menu-subcat{grid-column:1/-1;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin:22px 0 2px;padding-bottom:7px;border-bottom:2px solid var(--accent-soft)}
-.menu-subcat:first-child{margin-top:0}
-.menu-subcat+.subcat-note{grid-column:1/-1;font-size:.85rem;color:var(--grey);margin:-8px 0 8px;font-style:italic}
-.menu-item{padding:14px 0;border-bottom:1px dashed var(--grey-light)}
-.menu-item.hide{display:none}
-.menu-item-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
-.menu-item-top .mi-name{font-family:var(--serif);font-weight:600;font-size:1.08rem;color:var(--ink)}
-.menu-item-top .mi-price{font-family:var(--serif);font-weight:700;color:var(--brand);font-size:1rem;white-space:nowrap;font-variant-numeric:tabular-nums}
-.menu-item .mi-desc{font-size:.86rem;color:var(--grey);margin-top:3px}
-
-.menu-no-results{display:none;text-align:center;color:var(--grey);padding:40px 0;font-size:.95rem}
-
+.menu-subcat{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin:26px 0 2px;padding-bottom:7px;border-bottom:2px solid var(--accent-soft)}
+.menu-subcat+.subcat-note{font-size:.85rem;color:var(--grey);margin-bottom:10px;font-style:italic}
 .menu-foot{margin-top:30px;padding-top:24px;border-top:1px solid var(--grey-light);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .menu-foot p{font-size:.88rem;color:var(--grey);max-width:420px}
 
@@ -552,9 +538,12 @@ section{position:relative}
   .sig-grid{grid-template-columns:1fr 1fr}
   .sig-card:first-child{grid-column:span 2}
   .rev-top{grid-template-columns:1fr;gap:24px}
-  /* menu responsive */
-  .menu-grid{grid-template-columns:1fr}
-  .menu-cat-note{margin-left:0}
+  /* menu responsive (kept) */
+  .menu-layout{grid-template-columns:1fr}
+  .menu-side{position:static}
+  .menu-photo{max-width:420px;margin:0 auto 22px}
+  .menu-tabs{flex-direction:row;flex-wrap:wrap}
+  .menu-tab{flex:1;min-width:130px;justify-content:center}
   .about-grid{grid-template-columns:1fr;gap:56px}
   .about-photo{max-width:420px;margin:0 auto 8px}
   .visit-grid{flex-direction:column}
@@ -582,8 +571,11 @@ section{position:relative}
   .menu-foot{flex-direction:column;align-items:flex-start}
   .footer-grid{grid-template-columns:1fr}
   /* keep menu prices from getting cut off on narrow screens */
-  .menu-item-top{flex-wrap:wrap}
-  .menu-item-top .mi-price{margin-left:auto;font-size:.95rem}
+  .menu-row{flex-wrap:wrap;gap:5px 12px}
+  .menu-row .mr-name{order:1;flex:0 1 auto}
+  .menu-row .mr-price{order:2;margin-left:auto;font-size:.95rem;text-align:right}
+  .menu-row .mr-desc{order:3;flex:1 1 100%}
+  .menu-row .mr-dots{display:none}
   .hero-slogan{letter-spacing:.2em;font-size:.74rem}
   .footer-slogan{letter-spacing:.18em}
   /* keep the Kel's Cafe sign in frame on narrow screens */
@@ -699,140 +691,110 @@ section{position:relative}
     <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M10 44c-4-4-3-11 2-15L40 8c5-4 12-3 15 2 3 5 1 11-3 14L23 50c-5 4-10 4-13-6Z"/><path d="M44 14l-5 6M37 19l-5 6M30 24l-5 6M23 29l-5 6" stroke-width="2.4" stroke-linecap="round"/></svg>
   </div>
   <div class="wrap">
-    <div class="menu-head reveal">
-      <div class="menu-head-text">
-        <span class="kicker"><span class="idx">01</span> The Chalkboard</span>
-        <h2 class="display">Everything<br>at the <em>counter</em>.</h2>
-        <p>Coffee, drinks, breakfast and lunch made in-house, morning to midday. Bakery selection changes daily, depending on what's left in the case.</p>
-      </div>
-      <a href="tel:+14255550182" class="menu-call">Call to Order<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="center reveal">
+      <span class="eyebrow">The Chalkboard</span>
+      <h2 class="section-title">Menu</h2>
+      <p class="section-sub">Comfort food made in-house, morning to midday. Coffee, drinks and fresh baked goods at the counter.</p>
     </div>
-
-    <div class="reveal d1">
-      <div class="menu-search">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" id="menuSearch" placeholder="Search the menu (try: latte)" autocomplete="off" />
-      </div>
-      <div class="menu-filters" id="menuFilters">
-        <button class="menu-filter active" data-target="cat-espresso">Espresso</button>
-        <button class="menu-filter" data-target="cat-brewed">Brewed &amp; Tea</button>
-        <button class="menu-filter" data-target="cat-sodas">Italian Sodas</button>
-        <button class="menu-filter" data-target="cat-signature">Signature</button>
-        <button class="menu-filter" data-target="cat-breakfast">Breakfast</button>
-        <button class="menu-filter" data-target="cat-lunch">Lunch</button>
-        <button class="menu-filter" data-target="cat-desserts">Desserts &amp; Pastries</button>
-      </div>
-    </div>
-
-    <div class="menu-cats reveal d2" id="menuCats">
-      <!-- ESPRESSO -->
-      <div class="menu-cat" id="cat-espresso">
-        <div class="menu-cat-head"><span class="menu-cat-num">01</span><h3>Espresso Bar</h3><span class="menu-cat-note">Pulled to order</span></div>
-        <div class="menu-cat-rule"></div>
-        <p class="panel-note">Pulled fresh to order. Add a flavor or alternative milk anytime.</p>
-        <span class="sizes-key">Sizes: 8oz &nbsp;/&nbsp; 12oz &nbsp;/&nbsp; 16oz &nbsp;/&nbsp; 20oz</span>
-        <div class="menu-grid">
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Latte</span><span class="mi-price">4.65 / 5.15 / 5.65 / 6.05</span></div><p class="mi-desc">Espresso &amp; steamed milk</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Mocha</span><span class="mi-price">4.90 / 5.40 / 5.90 / 6.40</span></div><p class="mi-desc">Chocolate, espresso &amp; milk</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">White Mocha</span><span class="mi-price">4.50 / 5.10 / 5.70 / 6.20</span></div><p class="mi-desc">White chocolate &amp; espresso</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Chai Latte</span><span class="mi-price">4.50 / 5.10 / 5.70 / 6.20</span></div><p class="mi-desc">Spiced chai &amp; steamed milk</p></div>
+    <div class="menu-layout">
+      <aside class="menu-side">
+        <div class="menu-photo"><img src="images/Au-1.png" alt="Barista pulling espresso shots behind the counter at Kel's Cafe" loading="lazy" /></div>
+        <div class="menu-tabs" role="tablist">
+          <button class="menu-tab active" data-tab="espresso" role="tab"><span>Espresso</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 0 4h-2"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg></span></button>
+          <button class="menu-tab" data-tab="brewed" role="tab"><span>Brewed &amp; Tea</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 0 4h-2"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2c0 1 1 1 1 2s-1 1-1 2"/><path d="M10 2c0 1 1 1 1 2s-1 1-1 2"/></svg></span></button>
+          <button class="menu-tab" data-tab="sodas" role="tab"><span>Italian Sodas</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h14l-2 17a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2Z"/><path d="M5 7h14"/><line x1="15" y1="2" x2="13" y2="9"/></svg></span></button>
+          <button class="menu-tab" data-tab="signature" role="tab"><span>Signature</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></button>
+          <button class="menu-tab" data-tab="breakfast" role="tab"><span>Breakfast</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
+          <button class="menu-tab" data-tab="lunch" role="tab"><span>Lunch</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3v7"/></svg></span></button>
+          <button class="menu-tab" data-tab="desserts" role="tab"><span>Desserts &amp; Pastries</span><span class="tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 7 0 0 1 9 7H3a9 7 0 0 1 9-7z"/><rect x="2" y="9" width="20" height="4" rx="2"/><path d="M4 13v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/></svg></span></button>
         </div>
-      </div>
-      <!-- BREWED -->
-      <div class="menu-cat" id="cat-brewed">
-        <div class="menu-cat-head"><span class="menu-cat-num">02</span><h3>Brewed &amp; Tea</h3><span class="menu-cat-note">Brewed all morning</span></div>
-        <div class="menu-cat-rule"></div>
-        <p class="panel-note">Drip coffee brewed all morning. Loose-leaf and bagged teas available.</p>
-        <span class="sizes-key">Sizes: 8oz &nbsp;/&nbsp; 12oz &nbsp;/&nbsp; 16oz &nbsp;/&nbsp; 20oz</span>
-        <div class="menu-grid">
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Drip Coffee</span><span class="mi-price">4.00 / 4.50 / 5.00 / 5.50</span></div><p class="mi-desc">House brew, free refills in-house</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Hot Tea</span><span class="mi-price">2.50 / 2.75 / 3.00</span></div><p class="mi-desc">Ask about today's selection</p></div>
-        </div>
-      </div>
-      <!-- SODAS -->
-      <div class="menu-cat" id="cat-sodas">
-        <div class="menu-cat-head"><span class="menu-cat-num">03</span><h3>Italian Sodas</h3><span class="menu-cat-note">Finished with cream</span></div>
-        <div class="menu-cat-rule"></div>
-        <p class="panel-note">Flavored sparkling sodas, finished with cream on request.</p>
-        <span class="sizes-key">Sizes: 16oz &nbsp;/&nbsp; 20oz</span>
-        <div class="menu-grid">
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Red Bull Italian Soda</span><span class="mi-price">5.75 / 6.25</span></div><p class="mi-desc">Red Bull + flavor of choice</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Classic Italian Soda</span><span class="mi-price">Ask in store</span></div><p class="mi-desc">Sparkling water + flavor + cream</p></div>
-        </div>
-      </div>
-      <!-- SIGNATURE -->
-      <div class="menu-cat" id="cat-signature">
-        <div class="menu-cat-head"><span class="menu-cat-num">04</span><h3>Signature Drinks</h3><span class="menu-cat-note">House originals</span></div>
-        <div class="menu-cat-rule"></div>
-        <p class="panel-note">House originals, inspired by the game shop across the street.</p>
-        <div class="menu-grid">
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Bard's Bane</span><span class="mi-price">6.25 / 6.75</span></div><p class="mi-desc">Red Bull Italian soda with Mountain Dew &amp; cream</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Strong Constitution</span><span class="mi-price">Ask in store</span></div><p class="mi-desc">Shot in the dark with cream &amp; white chocolate</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Dragon Slayer</span><span class="mi-price">5.40</span></div><p class="mi-desc">Black &amp; white mocha with whip</p></div>
-        </div>
-      </div>
-      <!-- BREAKFAST -->
-      <div class="menu-cat" id="cat-breakfast">
-        <div class="menu-cat-head"><span class="menu-cat-num">05</span><h3>Breakfast</h3><span class="menu-cat-note">Served morning to midday</span></div>
-        <div class="menu-cat-rule"></div>
-        <p class="panel-note">Served morning to midday. Everything made to order.</p>
-        <div class="menu-grid">
+      </aside>
+      <div class="menu-panels">
+        <!-- BREAKFAST -->
+        <div class="menu-panel" data-panel="breakfast">
+          <h3>Breakfast</h3>
+          <p class="panel-note">Served morning to midday. Everything made to order.</p>
           <div class="menu-subcat">Breakfast Burritos</div>
           <p class="subcat-note">Made to order in a flour tortilla</p>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Sausage</span><span class="mi-price">Ask in store</span></div><p class="mi-desc">Egg, sausage, cheese</p></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Bacon</span><span class="mi-price">Ask in store</span></div><p class="mi-desc">Egg, bacon, cheese</p></div>
+          <div class="menu-row"><span class="mr-name">Sausage</span><span class="mr-desc">Egg, sausage, cheese</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Bacon</span><span class="mr-desc">Egg, bacon, cheese</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
           <div class="menu-subcat">Breakfast Sandwiches</div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Sausage Muffin</span><span class="mi-price">8.25</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Bacon Muffin</span><span class="mi-price">8.25</span></div></div>
+          <div class="menu-row"><span class="mr-name">Sausage Muffin</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">8.25</span></div>
+          <div class="menu-row"><span class="mr-name">Bacon Muffin</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">8.25</span></div>
           <div class="menu-subcat">Egg Bites</div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">With Meat</span><span class="mi-price">6.95</span></div></div>
+          <div class="menu-row"><span class="mr-name">With Meat</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">6.95</span></div>
           <div class="menu-subcat">Bagels</div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Plain</span><span class="mi-price">2.75–2.95</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">With Cream Cheese</span><span class="mi-price">3.65–3.95</span></div></div>
+          <div class="menu-row"><span class="mr-name">Plain</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">2.75–2.95</span></div>
+          <div class="menu-row"><span class="mr-name">With Cream Cheese</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">3.65–3.95</span></div>
         </div>
-      </div>
-      <!-- LUNCH -->
-      <div class="menu-cat" id="cat-lunch">
-        <div class="menu-cat-head"><span class="menu-cat-num">06</span><h3>Lunch</h3><span class="menu-cat-note">Made fresh daily</span></div>
-        <div class="menu-cat-rule"></div>
-        <p class="panel-note">Sandwiches and salads made fresh. Everything comes with homemade potato salad or chips.</p>
-        <div class="menu-grid">
+        <!-- LUNCH -->
+        <div class="menu-panel" data-panel="lunch">
+          <h3>Lunch</h3>
+          <p class="panel-note">Sandwiches and salads made fresh. Everything comes with homemade potato salad or chips.</p>
           <div class="menu-subcat">Salads</div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Greek</span><span class="mi-price">Sm 6.50 / Lg 11.95</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Chef</span><span class="mi-price">Sm 6.50 / Lg 11.95</span></div></div>
+          <div class="menu-row"><span class="mr-name">Greek</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Sm 6.50 / Lg 11.95</span></div>
+          <div class="menu-row"><span class="mr-name">Chef</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Sm 6.50 / Lg 11.95</span></div>
           <div class="menu-subcat">Sandwiches</div>
           <p class="subcat-note">With homemade potato salad or chips</p>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Chicken Salad</span><span class="mi-price">Ask in store</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Ham &amp; Cheddar</span><span class="mi-price">Ask in store</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Turkey Provolone</span><span class="mi-price">Ask in store</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Roast Beef &amp; Cheddar</span><span class="mi-price">Ask in store</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Roast Beef &amp; Provolone</span><span class="mi-price">Ask in store</span></div></div>
+          <div class="menu-row"><span class="mr-name">Chicken Salad</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Ham &amp; Cheddar</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Turkey Provolone</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Roast Beef &amp; Cheddar</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Roast Beef &amp; Provolone</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
           <div class="menu-subcat">Demi-Baguettes</div>
           <p class="subcat-note">All 9.95 &middot; With homemade potato salad or chips</p>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Ham &amp; Swiss</span><span class="mi-price">9.95</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Turkey &amp; Provolone</span><span class="mi-price">9.95</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Italian</span><span class="mi-price">9.95</span></div><p class="mi-desc">Pepperoni, salami, red onion, provolone</p></div>
+          <div class="menu-row"><span class="mr-name">Ham &amp; Swiss</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">9.95</span></div>
+          <div class="menu-row"><span class="mr-name">Turkey &amp; Provolone</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">9.95</span></div>
+          <div class="menu-row"><span class="mr-name">Italian</span><span class="mr-desc">Pepperoni, salami, red onion, provolone</span><span class="mr-dots"></span><span class="mr-price">9.95</span></div>
         </div>
-      </div>
-      <!-- DESSERTS -->
-      <div class="menu-cat" id="cat-desserts">
-        <div class="menu-cat-head"><span class="menu-cat-num">07</span><h3>Desserts &amp; Pastries</h3><span class="menu-cat-note">Baked in-house daily</span></div>
-        <div class="menu-cat-rule"></div>
-        <p class="panel-note">Baked in-house daily. Selection changes, so arrive early if you have a preference.</p>
-        <div class="menu-grid">
+        <!-- DESSERTS -->
+        <div class="menu-panel" data-panel="desserts">
+          <h3>Desserts &amp; Pastries</h3>
+          <p class="panel-note">Baked in-house daily. Selection changes, so arrive early if you have a preference.</p>
           <div class="menu-subcat">Cookies</div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Oatmeal Chocolate Chip</span><span class="mi-price">3.50</span></div></div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Cookie</span><span class="mi-price">3.50</span></div><p class="mi-desc">Ask about today's selection</p></div>
+          <div class="menu-row"><span class="mr-name">Oatmeal Chocolate Chip</span><span class="mr-desc"></span><span class="mr-dots"></span><span class="mr-price">3.50</span></div>
+          <div class="menu-row"><span class="mr-name">Cookie</span><span class="mr-desc">Ask about today's selection</span><span class="mr-dots"></span><span class="mr-price">3.50</span></div>
           <div class="menu-subcat">Pastries</div>
-          <div class="menu-item"><div class="menu-item-top"><span class="mi-name">Muffins</span><span class="mi-price">3.95</span></div><p class="mi-desc">Rotating flavors, baked fresh that morning</p></div>
+          <div class="menu-row"><span class="mr-name">Muffins</span><span class="mr-desc">Rotating flavors, baked fresh that morning</span><span class="mr-dots"></span><span class="mr-price">3.95</span></div>
+        </div>
+        <!-- ESPRESSO -->
+        <div class="menu-panel active" data-panel="espresso">
+          <h3>Espresso Bar</h3>
+          <p class="panel-note">Pulled fresh to order. Add a flavor or alternative milk anytime.</p>
+          <span class="sizes-key">Sizes: 8oz &nbsp;/&nbsp; 12oz &nbsp;/&nbsp; 16oz &nbsp;/&nbsp; 20oz</span>
+          <div class="menu-row"><span class="mr-name">Latte</span><span class="mr-desc">Espresso &amp; steamed milk</span><span class="mr-dots"></span><span class="mr-price">4.65 / 5.15 / 5.65 / 6.05</span></div>
+          <div class="menu-row"><span class="mr-name">Mocha</span><span class="mr-desc">Chocolate, espresso &amp; milk</span><span class="mr-dots"></span><span class="mr-price">4.90 / 5.40 / 5.90 / 6.40</span></div>
+          <div class="menu-row"><span class="mr-name">White Mocha</span><span class="mr-desc">White chocolate &amp; espresso</span><span class="mr-dots"></span><span class="mr-price">4.50 / 5.10 / 5.70 / 6.20</span></div>
+          <div class="menu-row"><span class="mr-name">Chai Latte</span><span class="mr-desc">Spiced chai &amp; steamed milk</span><span class="mr-dots"></span><span class="mr-price">4.50 / 5.10 / 5.70 / 6.20</span></div>
+        </div>
+        <!-- BREWED -->
+        <div class="menu-panel" data-panel="brewed">
+          <h3>Brewed &amp; Tea</h3>
+          <p class="panel-note">Drip coffee brewed all morning. Loose-leaf and bagged teas available.</p>
+          <span class="sizes-key">Sizes: 8oz &nbsp;/&nbsp; 12oz &nbsp;/&nbsp; 16oz &nbsp;/&nbsp; 20oz</span>
+          <div class="menu-row"><span class="mr-name">Drip Coffee</span><span class="mr-desc">House brew, free refills in-house</span><span class="mr-dots"></span><span class="mr-price">4.00 / 4.50 / 5.00 / 5.50</span></div>
+          <div class="menu-row"><span class="mr-name">Hot Tea</span><span class="mr-desc">Ask about today's selection</span><span class="mr-dots"></span><span class="mr-price">2.50 / 2.75 / 3.00</span></div>
+        </div>
+        <!-- SODAS -->
+        <div class="menu-panel" data-panel="sodas">
+          <h3>Italian Sodas</h3>
+          <p class="panel-note">Flavored sparkling sodas, finished with cream on request.</p>
+          <span class="sizes-key">Sizes: 16oz &nbsp;/&nbsp; 20oz</span>
+          <div class="menu-row"><span class="mr-name">Red Bull Italian Soda</span><span class="mr-desc">Red Bull + flavor of choice</span><span class="mr-dots"></span><span class="mr-price">5.75 / 6.25</span></div>
+          <div class="menu-row"><span class="mr-name">Classic Italian Soda</span><span class="mr-desc">Sparkling water + flavor + cream</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+        </div>
+        <!-- SIGNATURE -->
+        <div class="menu-panel" data-panel="signature">
+          <h3>Signature Drinks</h3>
+          <p class="panel-note">House originals, inspired by the game shop across the street.</p>
+          <div class="menu-row"><span class="mr-name">Bard's Bane</span><span class="mr-desc">Red Bull Italian soda with Mountain Dew &amp; cream</span><span class="mr-dots"></span><span class="mr-price">6.25 / 6.75</span></div>
+          <div class="menu-row"><span class="mr-name">Strong Constitution</span><span class="mr-desc">Shot in the dark with cream &amp; white chocolate</span><span class="mr-dots"></span><span class="mr-price">Ask in store</span></div>
+          <div class="menu-row"><span class="mr-name">Dragon Slayer</span><span class="mr-desc">Black &amp; white mocha with whip</span><span class="mr-dots"></span><span class="mr-price">5.40</span></div>
+        </div>
+        <div class="menu-foot">
+          <p>Bakery selection changes daily. Prices may vary by size and add-ins. Alternative milks and extra shots available.</p>
         </div>
       </div>
-    </div>
-
-    <p class="menu-no-results" id="menuNoResults">No items match your search. Try a different word, or ask in store.</p>
-
-    <div class="menu-foot">
-      <p>Bakery selection changes daily. Prices may vary by size and add-ins. Alternative milks and extra shots available.</p>
     </div>
   </div>
 </section>
@@ -842,7 +804,7 @@ section{position:relative}
   <div class="wrap">
     <div class="sig-head">
       <div class="reveal">
-        <span class="kicker"><span class="idx">02</span> Customer favorites</span>
+        <span class="kicker"><span class="idx">01</span> Customer favorites</span>
         <h2 class="display">What the regulars<br>order first.</h2>
       </div>
       <p class="lead reveal d1">A few dishes carry this place. Order one, then come back and find your own.</p>
@@ -892,7 +854,7 @@ section{position:relative}
 <section class="atmos">
   <div class="wrap">
     <div class="atmos-box reveal">
-      <span class="kicker"><span class="idx">03</span> The room</span>
+      <span class="kicker"><span class="idx">02</span> The room</span>
       <h2>Coffee beans,<br>straight from <em>Mexico</em>.</h2>
       <p>Our beans come from Mexico, then get roasted right before they hit your cup. Same coffee whether you're grabbing a drip on the way out or settling in for a latte before the game at the arena.</p>
       <a href="#about" class="btn btn-primary">Read Our Story</a>
@@ -905,7 +867,7 @@ section{position:relative}
   <div class="wrap">
     <div class="rev-top">
       <div class="reveal">
-        <span class="kicker"><span class="idx">04</span> Guest reviews</span>
+        <span class="kicker"><span class="idx">03</span> Guest reviews</span>
         <h2 class="display">Everett keeps<br>coming back.</h2>
       </div>
       <div class="reveal d1">
@@ -952,7 +914,7 @@ section{position:relative}
       <div class="since-badge"><span class="s1">Since</span><span class="s2">2025</span></div>
     </div>
     <div class="about-body reveal d1">
-      <span class="kicker"><span class="idx">05</span> Our story</span>
+      <span class="kicker"><span class="idx">04</span> Our story</span>
       <h2 class="display">A long road to the<br>corner of <em>Hewitt</em>.</h2>
       <p class="pull-quote">"Over a year to get here. Worth every bit of it."</p>
       <p>Sam Dahl always wanted a cafe of his own. It took well over a year to make it happen at 1909 Hewitt Avenue, right in the middle of downtown Everett, a short walk from Angel of the Winds Arena.</p>
@@ -979,7 +941,7 @@ section{position:relative}
 <section class="visit" id="visit">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker"><span class="idx">06</span> Find us</span>
+      <span class="kicker"><span class="idx">05</span> Find us</span>
       <h2 class="display">Visit Kel's.</h2>
       <p class="lead">Right across from Angel of the Winds Arena in downtown Everett.</p>
     </div>
@@ -1029,7 +991,7 @@ section{position:relative}
 <section class="community">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker"><span class="idx">07</span> Stop in</span>
+      <span class="kicker"><span class="idx">06</span> Stop in</span>
       <h2>A seat is <em>waiting</em>.</h2>
       <p>Whether it's a quick coffee before work or lunch on a weekday, Kel's has a table for you. On Hewitt, open Monday through Saturday.</p>
       <div class="community-btns">
@@ -1231,42 +1193,17 @@ section{position:relative}
     });
   });
 
-  /* ---- menu filter pills (jump to category) ---- */
-  var menuFilters=document.querySelectorAll(".menu-filter");
-  menuFilters.forEach(function(f){
-    f.addEventListener("click",function(){
-      menuFilters.forEach(function(x){x.classList.remove("active");});
-      f.classList.add("active");
-      var t=document.getElementById(f.getAttribute("data-target"));
-      if(t){
-        var top=t.getBoundingClientRect().top+window.scrollY-90;
-        window.scrollTo({top:top,behavior:"smooth"});
-      }
+  /* ---- menu tabs ---- */
+  var tabs=document.querySelectorAll(".menu-tab");
+  var panels=document.querySelectorAll(".menu-panel");
+  tabs.forEach(function(tab){
+    tab.addEventListener("click",function(){
+      var key=tab.getAttribute("data-tab");
+      tabs.forEach(function(t){t.classList.remove("active");});
+      panels.forEach(function(p){p.classList.toggle("active",p.getAttribute("data-panel")===key);});
+      tab.classList.add("active");
     });
   });
-
-  /* ---- menu search ---- */
-  var menuSearch=document.getElementById("menuSearch");
-  var menuCats=document.querySelectorAll(".menu-cat");
-  var menuNoResults=document.getElementById("menuNoResults");
-  if(menuSearch){
-    menuSearch.addEventListener("input",function(){
-      var q=menuSearch.value.trim().toLowerCase();
-      var anyVisible=false;
-      menuCats.forEach(function(cat){
-        var items=cat.querySelectorAll(".menu-item");
-        var catHasVisible=false;
-        items.forEach(function(item){
-          var match=!q||item.textContent.toLowerCase().indexOf(q)>-1;
-          item.classList.toggle("hide",!match);
-          if(match) catHasVisible=true;
-        });
-        cat.classList.toggle("hide",q!==""&&!catHasVisible);
-        if(catHasVisible) anyVisible=true;
-      });
-      if(menuNoResults) menuNoResults.style.display=(q&&!anyVisible)?"block":"none";
-    });
-  }
 
   /* ---- reveal on scroll ---- */
   var io=new IntersectionObserver(function(entries){
