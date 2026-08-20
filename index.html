@@ -201,10 +201,14 @@ section{position:relative}
 }
 .nav.scrolled{background:rgba(247,241,230,.86);backdrop-filter:blur(16px);box-shadow:var(--shadow-sm);padding:13px 0;border-color:var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;font-size:1.45rem;color:var(--white);transition:color var(--t);letter-spacing:-.01em}
-.nav.scrolled .logo{color:var(--brand-dark)}
-.logo-mark{width:42px;height:42px;flex:none;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
-.logo-mark svg{width:24px;height:24px}
+/* the crest carries the wordmark itself, so the logo is just the artwork.
+   Two colourways sit stacked and cross-fade as the nav turns light on scroll. */
+.logo{display:flex;align-items:center;position:relative;line-height:0}
+.logo-img{display:block;width:auto;height:54px;transition:height var(--t),opacity var(--t)}
+.logo-dark{position:absolute;left:0;top:0;opacity:0}
+.nav.scrolled .logo-light{opacity:0}
+.nav.scrolled .logo-dark{opacity:1}
+.nav.scrolled .logo-img{height:44px}
 .nav-links{display:flex;gap:34px;list-style:none}
 .nav-links a{font-weight:500;font-size:.9rem;letter-spacing:.02em;color:rgba(255,255,255,.9);position:relative;transition:color var(--t-fast)}
 .nav.scrolled .nav-links a{color:var(--ink)}
@@ -501,7 +505,8 @@ section{position:relative}
 /* ============================ FOOTER ============================ */
 .footer{background:var(--espresso);color:rgba(246,239,228,.7);padding:80px 0 0}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:50px;padding-bottom:54px}
-.footer .logo{color:var(--cream);margin-bottom:20px}
+.footer .logo{margin-bottom:20px}
+.footer .logo-img{height:66px}
 .footer-slogan{font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-soft);margin:-8px 0 18px}
 .footer-blurb{font-size:.93rem;max-width:330px;margin-bottom:24px;line-height:1.7}
 .footer h4{color:var(--cream);font-family:var(--sans);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}
@@ -553,6 +558,8 @@ section{position:relative}
 }
 @media(max-width:800px){
   .nav-links,.nav-call,.nav .btn{display:none}
+  .logo-img{height:46px}
+  .nav.scrolled .logo-img{height:40px}
   .hamburger{display:flex}
   .hero-meta{grid-template-columns:1fr 1fr}
   .hero-meta .m:nth-child(2){border-right:0}
@@ -599,10 +606,8 @@ section{position:relative}
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="logo" aria-label="Kel's Cafe home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" fill="#3f2a1b"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16" stroke="#3f2a1b" stroke-width="1.6"/><path d="M7 3.5c0 1-1 1.2-1 2.2M10 3c0 1-1 1.2-1 2.2M13 3.5c0 1-1 1.2-1 2.2" stroke="#3f2a1b" stroke-width="1.4" stroke-linecap="round"/></svg>
-      </span>
-      Kel's Cafe
+      <img class="logo-img logo-light" src="images/kels-logo-light.png" alt="" width="340" height="222" />
+      <img class="logo-img logo-dark" src="images/kels-logo-dark.png" alt="" aria-hidden="true" width="340" height="222" />
     </a>
     <ul class="nav-links">
       <li><a href="#favorites">Favorites</a></li>
@@ -1018,8 +1023,7 @@ section{position:relative}
   <div class="wrap footer-grid">
     <div>
       <div class="logo">
-        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" fill="#3f2a1b"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16" stroke="#3f2a1b" stroke-width="1.6"/></svg></span>
-        Kel's Cafe
+        <img class="logo-img logo-light" src="images/kels-logo-light.png" alt="Kel's Cafe" width="340" height="222" />
       </div>
       <p class="footer-slogan">Coffee <span>|</span> Food <span>|</span> Friends</p>
       <p class="footer-blurb">A locally owned cafe at 1909 Hewitt Avenue in downtown Everett. Coffee, fresh food and baked goods. Open Monday through Saturday, 8 AM to 2 PM.</p>
