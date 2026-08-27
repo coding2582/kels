@@ -285,6 +285,26 @@ section{position:relative}
 .marquee span::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent-soft);vertical-align:middle;font-style:normal}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ============================ GRAND REOPENING ============================ */
+/* time-boxed banner; the script hides it once REOPEN_DATE has passed */
+.reopen{background:var(--espresso);color:var(--cream);padding:48px 0;position:relative;overflow:hidden}
+.reopen::before{content:"";position:absolute;top:-40%;right:-6%;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(197,145,47,.22),transparent 68%);pointer-events:none}
+.reopen-inner{display:flex;align-items:center;gap:38px;flex-wrap:wrap;position:relative;z-index:1}
+.reopen-date{flex:none;width:112px;height:112px;border-radius:var(--r-md);background:var(--accent);color:var(--brand-dark);
+  display:grid;place-content:center;text-align:center;line-height:1;box-shadow:var(--shadow-lg)}
+.rd-day,.rd-mon{font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rd-num{font-family:var(--serif);font-size:2.9rem;font-weight:700;display:block;margin:4px 0}
+.reopen-body{flex:1;min-width:290px}
+.reopen-kicker{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-soft);margin-bottom:13px}
+.reopen-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:reopen-pulse 1.8s ease-in-out infinite}
+@keyframes reopen-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.4)}}
+.reopen h2{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.06;letter-spacing:-.02em;margin-bottom:12px}
+.reopen h2 em{font-family:var(--script);font-style:italic;font-weight:500;color:var(--accent-soft)}
+.reopen p{color:rgba(246,239,228,.82);max-width:530px;line-height:1.65;margin-bottom:26px}
+.reopen-btns{display:flex;gap:14px;flex-wrap:wrap}
+
 /* ============================ INTRO / ETHOS ============================ */
 .intro{padding:96px 0;background:var(--sec-cream)}
 .intro-statement{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.22;color:var(--brand-dark);
@@ -675,6 +695,26 @@ section{position:relative}
     <span>Breakfast Burritos</span><span>Demi-Baguettes</span><span>Homemade Potato Salad</span><span>Fresh Salads</span><span>House-Baked Muffins</span><span>1909 Hewitt Ave, Everett</span><span>Across from the Arena</span><span>Locally Owned</span>
   </div>
 </div>
+
+<!-- ============ GRAND REOPENING (time-boxed, see REOPEN_DATE in the script) ============ -->
+<section class="reopen" id="reopen">
+  <div class="wrap reopen-inner">
+    <div class="reopen-date" aria-hidden="true">
+      <span class="rd-day">Sat</span>
+      <span class="rd-num">29</span>
+      <span class="rd-mon">Aug</span>
+    </div>
+    <div class="reopen-body">
+      <span class="reopen-kicker"><span class="reopen-dot" aria-hidden="true"></span>Grand Reopening</span>
+      <h2>We're back this <em>Saturday</em>.</h2>
+      <p>Doors open at 8 AM with new items on the menu. The pastry case tends to empty out by midday, so come early.</p>
+      <div class="reopen-btns">
+        <a href="#menu" class="btn btn-primary">See the Menu</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1909+Hewitt+Avenue,+Everett,+WA+98201" target="_blank" rel="noopener" class="btn btn-ghost">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ INTRO / ETHOS ============ -->
 <section class="intro">
@@ -1076,6 +1116,20 @@ section{position:relative}
   };
   var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
+  /* ---- Grand reopening banner ----------------------------------------
+     Change both lines together, or set REOPEN_DATE to "" to pull the
+     banner down early. It hides itself once the day is over.          */
+  var REOPEN_DATE = "2026-08-29";
+  var REOPEN_ANNOUNCE = "Grand reopening <strong>Saturday, August 29</strong> &middot; "
+                      + "New menu items, doors open at 8 AM";
+
+  function reopenUpcoming(){
+    if(!REOPEN_DATE) return false;
+    var p = REOPEN_DATE.split("-");
+    var end = new Date(+p[0], +p[1]-1, +p[2], 23, 59, 59);  // end of that day, local
+    return new Date() <= end;
+  }
+
   function fmt(h){
     var ap = h>=12 ? "PM":"AM";
     var hr = h%12; if(hr===0) hr=12;
@@ -1133,6 +1187,9 @@ section{position:relative}
       announce.innerHTML = msg.replace(/(\d+ [AP]M)/,"<strong>$1</strong>");
     }
 
+    /* the reopening outranks the hours line in the top bar until it passes */
+    if(reopenUpcoming()) announce.innerHTML = REOPEN_ANNOUNCE;
+
     /* today highlight */
     var items=document.querySelectorAll("#hoursList li");
     items.forEach(function(li){
@@ -1145,6 +1202,10 @@ section{position:relative}
   }
   applyStatus();
   setInterval(applyStatus,60000);
+
+  /* the banner ships visible so it still shows without JS; drop it once past */
+  var reopenEl=document.getElementById("reopen");
+  if(reopenEl && !reopenUpcoming()) reopenEl.style.display="none";
 
   /* ---- year ---- */
   document.getElementById("year").textContent=new Date().getFullYear();
