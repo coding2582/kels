@@ -267,6 +267,23 @@ section{position:relative}
 .hero-title em{font-family:var(--script);font-style:italic;font-weight:500;color:var(--accent-soft)}
 .hero-sub{font-size:clamp(1.05rem,2vw,1.28rem);color:rgba(255,255,255,.96);max-width:540px;margin-bottom:36px;line-height:1.6;text-shadow:0 2px 16px rgba(0,0,0,.55)}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+/* small grand-reopening card sitting in the hero; hidden by the script once the day passes */
+.hero-reopen{
+  display:inline-flex;align-self:flex-start;margin-right:auto;align-items:center;gap:16px;margin-top:34px;padding:14px 20px 14px 16px;
+  background:rgba(20,13,9,.52);border:1px solid rgba(255,255,255,.22);border-left:3px solid var(--accent);
+  backdrop-filter:blur(8px);border-radius:14px;max-width:460px;text-decoration:none;color:inherit;
+  transition:background .25s ease,transform .25s ease,border-color .25s ease;
+}
+.hero-reopen:hover{background:rgba(20,13,9,.68);transform:translateY(-2px);border-color:rgba(255,255,255,.34)}
+.hero-reopen .hr-date{
+  flex:none;text-align:center;line-height:1;padding:8px 12px;border-radius:10px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+}
+.hero-reopen .hr-num{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:680;color:var(--accent-soft)}
+.hero-reopen .hr-mon{display:block;margin-top:4px;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.hero-reopen .hr-k{display:block;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:5px}
+.hero-reopen .hr-t{display:block;font-size:.95rem;font-weight:600;line-height:1.4;color:#fff}
+.hero-reopen .hr-s{display:block;font-size:.8rem;color:rgba(255,255,255,.72);margin-top:3px}
 /* hero meta strip */
 .hero-meta{
   width:100%;margin-top:54px;border-top:1px solid rgba(255,255,255,.22);
@@ -604,6 +621,9 @@ section{position:relative}
   .menu-row .mr-desc{order:3;flex:1 1 100%}
   .menu-row .mr-dots{display:none}
   .hero-slogan{letter-spacing:.2em;font-size:.74rem}
+  /* on phones the reopening card carries the message, so the long intro line goes */
+  .hero-sub{display:none}
+  .hero-reopen{margin-top:26px;width:100%;max-width:none}
   .footer-slogan{letter-spacing:.18em}
   /* keep the Kel's Cafe sign in frame on narrow screens */
   .hero{
@@ -676,6 +696,17 @@ section{position:relative}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
+      <a href="#reopen" class="hero-reopen reveal d3" id="heroReopen">
+        <span class="hr-date" aria-hidden="true">
+          <span class="hr-num">29</span>
+          <span class="hr-mon">Aug</span>
+        </span>
+        <span>
+          <span class="hr-k">Join us</span>
+          <span class="hr-t">Grand reopening, Saturday Aug 29</span>
+          <span class="hr-s">New menu items, 8 AM to 2 PM</span>
+        </span>
+      </a>
     </div>
     <div class="hero-meta reveal d4">
       <div class="m"><span class="m-k">Google Rating</span><span class="m-v">4.6 ★</span></div>
@@ -707,7 +738,7 @@ section{position:relative}
     <div class="reopen-body">
       <span class="reopen-kicker"><span class="reopen-dot" aria-hidden="true"></span>Grand Reopening</span>
       <h2>Come taste what's <em>new</em>.</h2>
-      <p>New items go on the menu this Saturday, 8 AM to 2 PM. Bring a friend and come hungry.</p>
+      <p>New items go on the menu this Saturday, 8 AM to 2 PM. Bring a friend and come enjoy our new items on the menu!</p>
       <div class="reopen-btns">
         <a href="#menu" class="btn btn-primary">See the Menu</a>
         <a href="https://www.google.com/maps/dir/?api=1&destination=1909+Hewitt+Avenue,+Everett,+WA+98201" target="_blank" rel="noopener" class="btn btn-ghost">Get Directions</a>
@@ -1206,6 +1237,8 @@ section{position:relative}
   /* the banner ships visible so it still shows without JS; drop it once past */
   var reopenEl=document.getElementById("reopen");
   if(reopenEl && !reopenUpcoming()) reopenEl.style.display="none";
+  var heroReopenEl=document.getElementById("heroReopen");
+  if(heroReopenEl && !reopenUpcoming()) heroReopenEl.style.display="none";
 
   /* ---- year ---- */
   document.getElementById("year").textContent=new Date().getFullYear();
