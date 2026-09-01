@@ -267,23 +267,6 @@ section{position:relative}
 .hero-title em{font-family:var(--script);font-style:italic;font-weight:500;color:var(--accent-soft)}
 .hero-sub{font-size:clamp(1.05rem,2vw,1.28rem);color:rgba(255,255,255,.96);max-width:540px;margin-bottom:36px;line-height:1.6;text-shadow:0 2px 16px rgba(0,0,0,.55)}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
-/* small grand-reopening card sitting in the hero; hidden by the script once the day passes */
-.hero-reopen{
-  display:inline-flex;align-self:flex-start;margin-right:auto;align-items:center;gap:16px;margin-top:34px;padding:14px 20px 14px 16px;
-  background:rgba(20,13,9,.52);border:1px solid rgba(255,255,255,.22);border-left:3px solid var(--accent);
-  backdrop-filter:blur(8px);border-radius:14px;max-width:460px;text-decoration:none;color:inherit;
-  transition:background .25s ease,transform .25s ease,border-color .25s ease;
-}
-.hero-reopen:hover{background:rgba(20,13,9,.68);transform:translateY(-2px);border-color:rgba(255,255,255,.34)}
-.hero-reopen .hr-date{
-  flex:none;text-align:center;line-height:1;padding:8px 12px;border-radius:10px;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
-}
-.hero-reopen .hr-num{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:680;color:var(--accent-soft)}
-.hero-reopen .hr-mon{display:block;margin-top:4px;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.hero-reopen .hr-k{display:block;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:5px}
-.hero-reopen .hr-t{display:block;font-size:.95rem;font-weight:600;line-height:1.4;color:#fff}
-.hero-reopen .hr-s{display:block;font-size:.8rem;color:rgba(255,255,255,.72);margin-top:3px}
 /* hero meta strip */
 .hero-meta{
   width:100%;margin-top:54px;border-top:1px solid rgba(255,255,255,.22);
@@ -301,26 +284,6 @@ section{position:relative}
 .marquee span{font-family:var(--script);font-style:italic;font-size:1.15rem;padding:0 30px;display:inline-flex;align-items:center;gap:30px}
 .marquee span::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent-soft);vertical-align:middle;font-style:normal}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ============================ GRAND REOPENING ============================ */
-/* time-boxed banner; the script hides it once REOPEN_DATE has passed */
-.reopen{background:var(--espresso);color:var(--cream);padding:48px 0;position:relative;overflow:hidden}
-.reopen::before{content:"";position:absolute;top:-40%;right:-6%;width:420px;height:420px;border-radius:50%;
-  background:radial-gradient(circle,rgba(197,145,47,.22),transparent 68%);pointer-events:none}
-.reopen-inner{display:flex;align-items:center;gap:38px;flex-wrap:wrap;position:relative;z-index:1}
-.reopen-date{flex:none;width:112px;height:112px;border-radius:var(--r-md);background:var(--accent);color:var(--brand-dark);
-  display:grid;place-content:center;text-align:center;line-height:1;box-shadow:var(--shadow-lg)}
-.rd-day,.rd-mon{font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-.rd-num{font-family:var(--serif);font-size:2.9rem;font-weight:700;display:block;margin:4px 0}
-.reopen-body{flex:1;min-width:290px}
-.reopen-kicker{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--accent-soft);margin-bottom:13px}
-.reopen-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:reopen-pulse 1.8s ease-in-out infinite}
-@keyframes reopen-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.4)}}
-.reopen h2{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.06;letter-spacing:-.02em;margin-bottom:12px}
-.reopen h2 em{font-family:var(--script);font-style:italic;font-weight:500;color:var(--accent-soft)}
-.reopen p{color:rgba(246,239,228,.82);max-width:530px;line-height:1.65;margin-bottom:26px}
-.reopen-btns{display:flex;gap:14px;flex-wrap:wrap}
 
 /* ============================ INTRO / ETHOS ============================ */
 .intro{padding:96px 0;background:var(--sec-cream)}
@@ -621,9 +584,6 @@ section{position:relative}
   .menu-row .mr-desc{order:3;flex:1 1 100%}
   .menu-row .mr-dots{display:none}
   .hero-slogan{letter-spacing:.2em;font-size:.74rem}
-  /* on phones the reopening card carries the message, so the long intro line goes */
-  .hero-sub{display:none}
-  .hero-reopen{margin-top:26px;width:100%;max-width:none}
   .footer-slogan{letter-spacing:.18em}
   /* keep the Kel's Cafe sign in frame on narrow screens */
   .hero{
@@ -696,17 +656,6 @@ section{position:relative}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
-      <a href="#reopen" class="hero-reopen reveal d3" id="heroReopen">
-        <span class="hr-date" aria-hidden="true">
-          <span class="hr-num">29</span>
-          <span class="hr-mon">Aug</span>
-        </span>
-        <span>
-          <span class="hr-k">Join us</span>
-          <span class="hr-t">The big reveal, Saturday Aug 29</span>
-          <span class="hr-s">New menu, new staff, new hours</span>
-        </span>
-      </a>
     </div>
     <div class="hero-meta reveal d4">
       <div class="m"><span class="m-k">Google Rating</span><span class="m-v">4.6 ★</span></div>
@@ -726,26 +675,6 @@ section{position:relative}
     <span>Breakfast Burritos</span><span>Demi-Baguettes</span><span>Homemade Potato Salad</span><span>Fresh Salads</span><span>House-Baked Muffins</span><span>1909 Hewitt Ave, Everett</span><span>Across from the Arena</span><span>Locally Owned</span>
   </div>
 </div>
-
-<!-- ============ GRAND REOPENING (time-boxed, see REOPEN_DATE in the script) ============ -->
-<section class="reopen" id="reopen">
-  <div class="wrap reopen-inner">
-    <div class="reopen-date" aria-hidden="true">
-      <span class="rd-day">Sat</span>
-      <span class="rd-num">29</span>
-      <span class="rd-mon">Aug</span>
-    </div>
-    <div class="reopen-body">
-      <span class="reopen-kicker"><span class="reopen-dot" aria-hidden="true"></span>The Big Reveal</span>
-      <h2>Come see what's <em>new</em>.</h2>
-      <p>This Saturday we're unveiling a new menu, new staff and new hours. Bring a friend and come check it all out, 8 AM to 2 PM.</p>
-      <div class="reopen-btns">
-        <a href="#menu" class="btn btn-primary">See the Menu</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=1909+Hewitt+Avenue,+Everett,+WA+98201" target="_blank" rel="noopener" class="btn btn-ghost">Get Directions</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ INTRO / ETHOS ============ -->
 <section class="intro">
@@ -1147,20 +1076,6 @@ section{position:relative}
   };
   var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-  /* ---- Grand reopening banner ----------------------------------------
-     Change both lines together, or set REOPEN_DATE to "" to pull the
-     banner down early. It hides itself once the day is over.          */
-  var REOPEN_DATE = "2026-08-29";
-  var REOPEN_ANNOUNCE = "The big reveal is <strong>Saturday, August 29</strong> &middot; "
-                      + "New menu, new staff, new hours";
-
-  function reopenUpcoming(){
-    if(!REOPEN_DATE) return false;
-    var p = REOPEN_DATE.split("-");
-    var end = new Date(+p[0], +p[1]-1, +p[2], 23, 59, 59);  // end of that day, local
-    return new Date() <= end;
-  }
-
   function fmt(h){
     var ap = h>=12 ? "PM":"AM";
     var hr = h%12; if(hr===0) hr=12;
@@ -1218,9 +1133,6 @@ section{position:relative}
       announce.innerHTML = msg.replace(/(\d+ [AP]M)/,"<strong>$1</strong>");
     }
 
-    /* the reopening outranks the hours line in the top bar until it passes */
-    if(reopenUpcoming()) announce.innerHTML = REOPEN_ANNOUNCE;
-
     /* today highlight */
     var items=document.querySelectorAll("#hoursList li");
     items.forEach(function(li){
@@ -1233,12 +1145,6 @@ section{position:relative}
   }
   applyStatus();
   setInterval(applyStatus,60000);
-
-  /* the banner ships visible so it still shows without JS; drop it once past */
-  var reopenEl=document.getElementById("reopen");
-  if(reopenEl && !reopenUpcoming()) reopenEl.style.display="none";
-  var heroReopenEl=document.getElementById("heroReopen");
-  if(heroReopenEl && !reopenUpcoming()) heroReopenEl.style.display="none";
 
   /* ---- year ---- */
   document.getElementById("year").textContent=new Date().getFullYear();
